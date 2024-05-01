@@ -11,9 +11,14 @@ network_automation
 
 <img src="https://img.shields.io/badge/-Python-0C0C0C.svg?logo=python&style=for-the-badge">
 <img src="https://img.shields.io/badge/-FastAPI-0C0C0C.svg?logo=fastAPI&style=for-the-badge">
+
 <img src="https://img.shields.io/badge/-FastAPI-0C0C0C.svg?logo=amazonaws&style=for-the-badge">
 <img src="https://img.shields.io/badge/-FastAPI-0C0C0C.svg?logo=microsoftazure&style=for-the-badge">
 <img src="https://img.shields.io/badge/-FastAPI-0C0C0C.svg?logo=react&style=for-the-badge">
+
+
+
+
 
 バッジ：https://shields.io/badges/static-badge</br>
 アイコン：https://simpleicons.org/?q=react</br>
