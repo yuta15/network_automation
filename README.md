@@ -12,9 +12,9 @@ network_automation
 <img src="https://img.shields.io/badge/-Python-0C0C0C.svg?logo=python&style=for-the-badge">
 <img src="https://img.shields.io/badge/-FastAPI-0C0C0C.svg?logo=fastAPI&style=for-the-badge">
 
-<img src="https://img.shields.io/badge/-FastAPI-0C0C0C.svg?logo=amazonaws&style=for-the-badge">
-<img src="https://img.shields.io/badge/-FastAPI-0C0C0C.svg?logo=microsoftazure&style=for-the-badge">
-<img src="https://img.shields.io/badge/-FastAPI-0C0C0C.svg?logo=react&style=for-the-badge">
+<img src="https://img.shields.io/badge/-AWS-0C0C0C.svg?logo=amazonaws&style=for-the-badge">
+<img src="https://img.shields.io/badge/-Azure-0C0C0C.svg?logo=microsoftazure&style=for-the-badge">
+<img src="https://img.shields.io/badge/-React-0C0C0C.svg?logo=react&style=for-the-badge">
 
 
 
