@@ -1,15 +1,14 @@
 import copy
 import json
 
-from modules import get_data
+from Application.modules import get_data
 
 def get_interface_all():
     USER = "cisco"
     PASS = "cisco"
     host = "172.18.1.2"
-    get_headers = {'Accept': 'application/yang-data+json'}
     base_api_url = f"https://{host}/restconf/data/openconfig-interfaces:interfaces"    
-    data = get_data.get_interface_data(USER, PASS, get_headers, base_api_url)    
+    data = get_data.get_data(USER, PASS, base_api_url)    
     interface_data = json.dumps(generate_return_data(data))
     print(type(interface_data))
     return interface_data
@@ -55,3 +54,5 @@ def generate_return_data(return_json):
             interface_data[subinterface_index] = subinterface_data
         interface_informations[interface['name']] = interface_data
     return interface_informations
+
+

@@ -17,7 +17,7 @@ URL生成：https://t8csp.csb.app/</br>
 # 環境変数
 |変数名|役割|デフォルト値|環境差分|
 |:----|:----|:---------|:-------|
-|TEST|テスト|test|test|
+|TEST |テスト|test      |test    |
 |||||
 
 ---
@@ -33,21 +33,86 @@ FastAPIにて差分を吸収し、必要な情報をJSON形式にして応答す
 # 機能予定
 ### 機能一覧
 ```
-┌ 設定情報の取得
-    ├ ホスト情報
-        ├ バージョン
-        └ 稼働時間
-    ├ インターフェース情報
-        ├ IPアドレス情報
-            └ サブネット・セグメント情報
-        └ インターフェースステータス
-            ├ リンクステータス情報
-            ├ Speed/Duplex
-            └ I/O情報
-    └ ルーティング情報
-        ├ ルーティングテーブル情報
-        ├ 各メトリックの表示
-        └ RIB(Routing Information Base)
+## Network device information acquisition function ## 
+┌ Status
+    ├ Hosts
+        ├ Host
+            ├ Version
+            ├ Uptime * no path *
+            ├ Serial
+            ├ 
+        ├ Interfaces
+            ├ Interface
+                ├ VLAN ID
+                ├ IP address
+                ├ prefixex
+                ├ Interface status
+                ├ Link Status
+                ├ Speed/Duplex
+                ├ I/O Infomations
+                ├ FHRP
+                    ├ ID
+                    ├ VIP
+                    ├ Priority
+                    ├ Master/Slave or Active/Standby
+                    ├ Preemptive
+        ├ Routing Informations
+            ├ Route Table
+                ├ Destination
+                ├ Nexthop or Interface or both
+                ├ AD/Metric
+            └ RIB(Routing Information Base)
+                ├ StaticRoute
+                    ├ Destination
+                    ├ Nexthop or Interface or both
+                    ├ AD
+                ├ BGP
+                    ├ Best Path
+                    ├ Destination
+                    ├ Advertised Router
+                    ├ Atribute
+                        ├ ORIGIN
+                        ├ AS_PATH
+                        ├ NEXT_HOP
+                        ├ MULTI_fEXIT_DISC
+                        ├ LOCAL_PREF
+                        ├ ATOMIC_AGGREGATE
+                        ├ AGGREGATOR
+                        ├ COMMUNITY
+                        ├ ORIGINATOR_ID
+                        ├ CLUSTER_LIST
+                ├ OSPF **Schedule of entry**
+        ├ ACL
+            ├ ACL list
+                ├ Configuration point
+                ├ Detailed rules
+                    ├ Sequence
+                    ├ Protocol
+                    ├ Source IP address
+                    ├ Source port/service
+                    ├ Destination IP address
+                    ├ Destination port/service
+        ├ NAT
+            ├ NAT List
+                ├ in/out interface
+                ├ NAT IP addresses
+        ├ Other Functions **Schedule of entry**
+            ├ Management
+                ├ Syslog
+                ├ SNMP
+                ├ VTY
+                ├ Console
+            ├ Logging
+                ├ Log output setting
+                ├ Log Storage Settings
+                ├ タイムゾーン設定
+            ├ CDP/LLDP
+            ├ Redundancy / High Availability
+            └ etc
+```
+```
+## Network device configuration change function ##
+**Schedule of entry**
 ├ 設定変更
     ├ インターフェース設定変更
     ├ VLAN設定変更
@@ -61,10 +126,11 @@ FastAPIにて差分を吸収し、必要な情報をJSON形式にして応答す
     ├ 各STP設定変更
     ├ L2スイッチポート設定変更
     └ LAG設定変更
-└ リアルタイム統計情報を取得
-    ├ 必要な情報を整理後記載
 ```
-
+```
+### Telemetry information acquisition function ###
+**Schedule of entry**
+```
 ---
 
 ## 機能詳細
