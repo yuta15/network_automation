@@ -24,6 +24,7 @@ URL生成：https://t8csp.csb.app/</br>
 
 # 基本ルール
 モデルは<a link="https://openconfig.net/projects/models/schemadocs/">OpenConfig Data Model</a>に準拠するが、必要に応じて<a link="https://github.com/YangModels">Yang Models</a>を使用する。
+可能な限りベンダーニュートラルに近づけるが、必要な情報が取得できない場合はベンダー固有のYANGモジュールを使用する。
 使用するプロトコルは、取得可能な場合は、RESTCONFにてネットワーク機器の設定情報を取得する。
 該当の情報が原則JSON形式で取得することが難しい場合、NETCONFを使用してXML形式で情報を取得する。
 FastAPIにて差分を吸収し、必要な情報をJSON形式にして応答する。
