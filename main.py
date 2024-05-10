@@ -26,16 +26,16 @@ app = FastAPI()
 @app.get('/host')
 async def get_hostdata():
     host = Host("172.18.1.2", "cisco", "cisco")
-    data = host.get_hostdata2()
+    data = host.get_hostdata()
     data = json.dumps(data)
     return data
 
 
 @app.get('/interfaces')
 async def get_interfaces():
-    host = Host("192.168.1.100", "cisco", "cisco")
-    data = host.get_interface_all()
-    return data
+    host = Host("172.18.1.2", "cisco", "cisco")
+    all_interfaces_data = json.dumps(host.get_interface_all())
+    return all_interfaces_data
 
 
 @app.get('/interfaces/{interface_name}')

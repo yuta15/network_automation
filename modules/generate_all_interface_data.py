@@ -1,17 +1,58 @@
 import copy
 import json
 
-from Application.modules import get_data
+from modules import get_data
 
-def get_interface_all():
-    USER = "cisco"
-    PASS = "cisco"
-    host = "172.18.1.2"
-    base_api_url = f"https://{host}/restconf/data/openconfig-interfaces:interfaces"    
-    data = get_data.get_data(USER, PASS, base_api_url)    
-    interface_data = json.dumps(generate_return_data(data))
-    print(type(interface_data))
-    return interface_data
+
+def generate_all_interface_data(interface_dict):
+    """
+    class Hostにて取得したinterfaceデータをもとに応答するデータを生成する関数。
+    必要なデータを生成する。
+    interface情報は
+    **args: obj
+    →
+    return: obj
+    interface_name:{
+        'ethernet':{
+            'mac-address':,
+            'duplex':,
+            'speed':
+        },
+        subinterface_index:{
+            'enabled': ,
+            'admin_status':,
+            'oper_status':,
+            'last_change':,
+            'ip':,
+            'prefix-length':,
+            'discription':,
+        },
+    }
+    """
+    # print(type(interface_obj))
+    # アンパッキングして各情報を分離
+    interface_name, interface_config, interface_state, interface_subinterface, interface_ethernet = interface_dict.values()
+    generate_interface_subinterface(interface_subinterface)
+
+
+
+def generate_interface_subinterface(subinterface_dict):
+    """
+    2025/05/11 subinterfaceの情報のみ取得した状態。
+    これを加工して必要な情報を取得する。
+    現状values()にて取得したデータはリスト型となっている。
+    """
+    for subinterface in subinterface_dict.values():
+        print (type(subinterface))
+        print ('-----------------------------------------------------------------')
+    
+
+
+
+
+
+
+
 
 
 def generate_return_data(return_json):
