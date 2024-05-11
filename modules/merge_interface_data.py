@@ -1,56 +1,67 @@
 import copy
-import json
 
-from modules import get_data
+from modules import merge_subinterfaces
 
 
-def generate_all_interface_data(interface_dict):
+def generate_all_interface_data(all_interface_list):
     """
-    class Hostにて取得したinterfaceデータをもとに応答するデータを生成する関数。
-    必要なデータを生成する。
-    interface情報は
-    **args: obj
-    →
-    return: obj
-    interface_name:{
-        'ethernet':{
-            'mac-address':,
-            'duplex':,
-            'speed':
-        },
-        subinterface_index:{
-            'enabled': ,
-            'admin_status':,
-            'oper_status':,
-            'last_change':,
-            'ip':,
-            'prefix-length':,
-            'discription':,
-        },
-    }
+    引数で渡された全インターフェース情報から必要な情報を応答する関数。
+    
+    properties:
+        all_interface_dict: dict
+            すべてのインターフェース情報
+    return: dict
+        インターフェース情報
+
+    remarks:
+
     """
-    # print(type(interface_obj))
-    # アンパッキングして各情報を分離
+    return_all_interfaces = {}
+    for interface_dict in all_interface_list:
+        merge_interface_data(interface_dict)
+
+
+
+def merge_interface_data(interface_dict):
+    """
+    引数で渡された単一のインターフェース情報から必要な情報を応答する関数。
+
+    properties: 
+        interface_dict: dict
+            単一のインターフェース情報
+        return: dict
+            interface_name:{
+                
+                'ethernet':{},
+                'subinterfaces': [{}]
+        }
+    """
     interface_name, interface_config, interface_state, interface_subinterface, interface_ethernet = interface_dict.values()
-    generate_interface_subinterface(interface_subinterface)
-
-
-
-def generate_interface_subinterface(subinterface_dict):
-    """
-    2025/05/11 subinterfaceの情報のみ取得した状態。
-    これを加工して必要な情報を取得する。
-    現状values()にて取得したデータはリスト型となっている。
-    """
-    for subinterface in subinterface_dict.values():
-        print (type(subinterface))
-        print ('-----------------------------------------------------------------')
+    merge_subinterfaces.merge_subints(interface_subinterface)
+    # merge_ethernet(interface_ethernet)
     
 
 
 
 
 
+
+def extraction_interface_ethernet(interface_ethernet):
+    """
+    インターフェース情報からethernet情報を抽出・整形するための関数。
+    properties:
+        interface_ethernet: dict
+    return:
+        {
+            'mac-address': str,
+            'duplex': str,
+            'speed': str
+        },
+    """
+
+
+# def parse_dict_keys(parse_dict):
+    
 
 
 
