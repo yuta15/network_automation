@@ -27,16 +27,14 @@ def parse_subint_ipv4_addr(sub_int_ipv4_addr_dict) -> dict:
             'prefix-length': None or str or list,
         }
     """
-    path_str = ['state', 'ip', 'prefix-length']
-    state, ip, prefix_len = path_str
+    state, ip, prefix_len = 'state', 'ip', 'prefix-length'
     return_ipv4_data = {'ip': None, 'prefix-length': None,}
-    
     if sub_int_ipv4_addr_dict is None:
         return return_ipv4_data
     elif len(sub_int_ipv4_addr_dict.get('address')) == 1:
         ipv4_add = sub_int_ipv4_addr_dict.get('address')[0]
-        return_ipv4_data['ip'] = ipv4_add[state][ip]
-        return_ipv4_data['prefix-length'] = ipv4_add[state][prefix_len]
+        return_ipv4_data['ip'] = ipv4_add[state].get(ip)
+        return_ipv4_data['prefix-length'] = ipv4_add[state].get(prefix_len)
         return return_ipv4_data
     else:
         ip_list = []

@@ -1,6 +1,6 @@
 
 
-from modules import parse_subinterface
+from modules import parse_interface_subinterface
 
 
 def merge_sub_ints(sub_int_list) -> dict:
@@ -91,7 +91,7 @@ def merge_sub_int_ipv4(sub_int_ipv4_dict) -> dict:
     for ipv4_key in ipv4_keys:
         match ipv4_key:
             case 'addresses':
-                addresses_dict = parse_subinterface.parse_subint_ipv4_addr(sub_int_ipv4_dict.get(ipv4_key))                
+                addresses_dict = parse_interface_subinterface.parse_subint_ipv4_addr(sub_int_ipv4_dict.get(ipv4_key))                
             # case 'proxy-arp':
                 # proxy-arp処理
             # case 'state':

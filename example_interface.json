@@ -1,0 +1,1003 @@
+{
+    "openconfig-interfaces:interfaces": {
+      "interface": [
+        {
+          "name": "GigabitEthernet1",
+          "config": {
+            "name": "GigabitEthernet1",
+            "type": "iana-if-type:ethernetCsmacd",
+            "enabled": false
+          },
+          "state": {
+            "name": "GigabitEthernet1",
+            "type": "iana-if-type:ethernetCsmacd",
+            "enabled": false,
+            "ifindex": 1,
+            "admin-status": "DOWN",
+            "oper-status": "DOWN",
+            "last-change": "1715487320107000000",
+            "counters": {
+              "in-octets": "0",
+              "in-unicast-pkts": "0",
+              "in-broadcast-pkts": "0",
+              "in-multicast-pkts": "0",
+              "in-discards": "0",
+              "in-errors": "0",
+              "in-unknown-protos": "0",
+              "in-fcs-errors": "0",
+              "out-octets": "0",
+              "out-unicast-pkts": "0",
+              "out-broadcast-pkts": "0",
+              "out-multicast-pkts": "0",
+              "out-discards": "0",
+              "out-errors": "0",
+              "last-clear": "1715487161000000000"
+            }
+          },
+          "subinterfaces": {
+            "subinterface": [
+              {
+                "index": 0,
+                "config": {
+                  "index": 0,
+                  "enabled": false
+                },
+                "state": {
+                  "enabled": false,
+                  "name": "GigabitEthernet1",
+                  "ifindex": 1,
+                  "admin-status": "DOWN",
+                  "oper-status": "DOWN",
+                  "last-change": "1715487320107000000",
+                  "counters": {
+                    "in-octets": "0",
+                    "in-unicast-pkts": "0",
+                    "in-broadcast-pkts": "0",
+                    "in-multicast-pkts": "0",
+                    "in-discards": "0",
+                    "in-errors": "0",
+                    "in-unknown-protos": "0",
+                    "in-fcs-errors": "0",
+                    "out-octets": "0",
+                    "out-unicast-pkts": "0",
+                    "out-broadcast-pkts": "0",
+                    "out-multicast-pkts": "0",
+                    "out-discards": "0",
+                    "out-errors": "0",
+                    "last-clear": "1715487161000000000"
+                  }
+                },
+                "openconfig-if-ip:ipv4": {
+                  "proxy-arp": {
+                    "state": {
+                      "mode": "DISABLE"
+                    }
+                  },
+                  "state": {
+                    "counters": {
+                      "in-pkts": "0",
+                      "in-octets": "0",
+                      "in-error-pkts": "0",
+                      "in-forwarded-pkts": "0",
+                      "in-forwarded-octets": "0",
+                      "in-discarded-pkts": "0",
+                      "out-pkts": "0",
+                      "out-octets": "0",
+                      "out-error-pkts": "0",
+                      "out-forwarded-pkts": "0",
+                      "out-forwarded-octets": "0",
+                      "out-discarded-pkts": "0"
+                    }
+                  }
+                },
+                "openconfig-if-ip:ipv6": {
+                  "config": {
+                    "enabled": false
+                  },
+                  "state": {
+                    "enabled": false,
+                    "counters": {
+                      "in-pkts": "0",
+                      "in-octets": "0",
+                      "in-error-pkts": "0",
+                      "in-forwarded-pkts": "0",
+                      "in-forwarded-octets": "0",
+                      "in-discarded-pkts": "0",
+                      "out-pkts": "0",
+                      "out-octets": "0",
+                      "out-error-pkts": "0",
+                      "out-forwarded-pkts": "0",
+                      "out-forwarded-octets": "0",
+                      "out-discarded-pkts": "0"
+                    }
+                  }
+                }
+              }
+            ]
+          },
+          "openconfig-if-ethernet:ethernet": {
+            "config": {
+              "mac-address": "52:54:00:10:73:00",
+              "auto-negotiate": true,
+              "enable-flow-control": true
+            },
+            "state": {
+              "mac-address": "52:54:00:10:73:00",
+              "auto-negotiate": true,
+              "port-speed": "openconfig-if-ethernet:SPEED_1GB",
+              "enable-flow-control": false,
+              "hw-mac-address": "52:54:00:10:73:00",
+              "negotiated-duplex-mode": "FULL",
+              "negotiated-port-speed": "openconfig-if-ethernet:SPEED_1GB",
+              "counters": {
+                "in-mac-control-frames": "0",
+                "in-mac-pause-frames": "0",
+                "in-oversize-frames": "0",
+                "in-jabber-frames": "0",
+                "in-fragment-frames": "0",
+                "in-8021q-frames": "0",
+                "in-crc-errors": "0",
+                "out-mac-control-frames": "0",
+                "out-mac-pause-frames": "0",
+                "out-8021q-frames": "0"
+              }
+            }
+          }
+        },
+        {
+          "name": "GigabitEthernet2",
+          "config": {
+            "name": "GigabitEthernet2",
+            "type": "iana-if-type:ethernetCsmacd",
+            "enabled": true
+          },
+          "state": {
+            "name": "GigabitEthernet2",
+            "type": "iana-if-type:ethernetCsmacd",
+            "enabled": true,
+            "ifindex": 2,
+            "admin-status": "UP",
+            "oper-status": "UP",
+            "last-change": "1715487325262000000",
+            "counters": {
+              "in-octets": "299340",
+              "in-unicast-pkts": "2793",
+              "in-broadcast-pkts": "0",
+              "in-multicast-pkts": "0",
+              "in-discards": "0",
+              "in-errors": "0",
+              "in-unknown-protos": "0",
+              "in-fcs-errors": "0",
+              "out-octets": "560466",
+              "out-unicast-pkts": "2852",
+              "out-broadcast-pkts": "0",
+              "out-multicast-pkts": "0",
+              "out-discards": "0",
+              "out-errors": "0",
+              "last-clear": "1715487161000000000"
+            }
+          },
+          "subinterfaces": {
+            "subinterface": [
+              {
+                "index": 0,
+                "config": {
+                  "index": 0,
+                  "enabled": true
+                },
+                "state": {
+                  "enabled": true,
+                  "name": "GigabitEthernet2",
+                  "ifindex": 2,
+                  "admin-status": "UP",
+                  "oper-status": "UP",
+                  "last-change": "1715487325262000000",
+                  "counters": {
+                    "in-octets": "299340",
+                    "in-unicast-pkts": "2793",
+                    "in-broadcast-pkts": "0",
+                    "in-multicast-pkts": "0",
+                    "in-discards": "0",
+                    "in-errors": "0",
+                    "in-unknown-protos": "0",
+                    "in-fcs-errors": "0",
+                    "out-octets": "560466",
+                    "out-unicast-pkts": "2852",
+                    "out-broadcast-pkts": "0",
+                    "out-multicast-pkts": "0",
+                    "out-discards": "0",
+                    "out-errors": "0",
+                    "last-clear": "1715487161000000000"
+                  }
+                },
+                "openconfig-if-ip:ipv4": {
+                  "addresses": {
+                    "address": [
+                      {
+                        "ip": "172.18.1.2",
+                        "config": {
+                          "ip": "172.18.1.2",
+                          "prefix-length": 30
+                        },
+                        "state": {
+                          "ip": "172.18.1.2",
+                          "prefix-length": 30
+                        }
+                      }
+                    ]
+                  },
+                  "proxy-arp": {
+                    "state": {
+                      "mode": "DISABLE"
+                    }
+                  },
+                  "state": {
+                    "counters": {
+                      "in-pkts": "2432",
+                      "in-octets": "170142",
+                      "in-error-pkts": "0",
+                      "in-forwarded-pkts": "0",
+                      "in-forwarded-octets": "0",
+                      "in-discarded-pkts": "0",
+                      "out-pkts": "2667",
+                      "out-octets": "498629",
+                      "out-error-pkts": "0",
+                      "out-forwarded-pkts": "2667",
+                      "out-forwarded-octets": "0",
+                      "out-discarded-pkts": "0"
+                    }
+                  }
+                },
+                "openconfig-if-ip:ipv6": {
+                  "config": {
+                    "enabled": false
+                  },
+                  "state": {
+                    "enabled": false,
+                    "counters": {
+                      "in-pkts": "0",
+                      "in-octets": "0",
+                      "in-error-pkts": "0",
+                      "in-forwarded-pkts": "0",
+                      "in-forwarded-octets": "0",
+                      "in-discarded-pkts": "0",
+                      "out-pkts": "0",
+                      "out-octets": "0",
+                      "out-error-pkts": "0",
+                      "out-forwarded-pkts": "0",
+                      "out-forwarded-octets": "0",
+                      "out-discarded-pkts": "0"
+                    }
+                  }
+                }
+              }
+            ]
+          },
+          "openconfig-if-ethernet:ethernet": {
+            "config": {
+              "mac-address": "52:54:00:1b:58:97",
+              "auto-negotiate": true,
+              "enable-flow-control": true
+            },
+            "state": {
+              "mac-address": "52:54:00:1b:58:97",
+              "auto-negotiate": true,
+              "port-speed": "openconfig-if-ethernet:SPEED_1GB",
+              "enable-flow-control": false,
+              "hw-mac-address": "52:54:00:1b:58:97",
+              "negotiated-duplex-mode": "FULL",
+              "negotiated-port-speed": "openconfig-if-ethernet:SPEED_1GB",
+              "counters": {
+                "in-mac-control-frames": "0",
+                "in-mac-pause-frames": "0",
+                "in-oversize-frames": "0",
+                "in-jabber-frames": "0",
+                "in-fragment-frames": "0",
+                "in-8021q-frames": "0",
+                "in-crc-errors": "0",
+                "out-mac-control-frames": "0",
+                "out-mac-pause-frames": "0",
+                "out-8021q-frames": "0"
+              }
+            }
+          }
+        },
+        {
+          "name": "GigabitEthernet3",
+          "config": {
+            "name": "GigabitEthernet3",
+            "type": "iana-if-type:ethernetCsmacd",
+            "enabled": true
+          },
+          "state": {
+            "name": "GigabitEthernet3",
+            "type": "iana-if-type:ethernetCsmacd",
+            "enabled": true,
+            "ifindex": 3,
+            "admin-status": "UP",
+            "oper-status": "UP",
+            "last-change": "1715487325262000000",
+            "counters": {
+              "in-octets": "0",
+              "in-unicast-pkts": "0",
+              "in-broadcast-pkts": "0",
+              "in-multicast-pkts": "0",
+              "in-discards": "0",
+              "in-errors": "0",
+              "in-unknown-protos": "0",
+              "in-fcs-errors": "0",
+              "out-octets": "61410",
+              "out-unicast-pkts": "178",
+              "out-broadcast-pkts": "0",
+              "out-multicast-pkts": "0",
+              "out-discards": "0",
+              "out-errors": "0",
+              "last-clear": "1715487161000000000"
+            }
+          },
+          "subinterfaces": {
+            "subinterface": [
+              {
+                "index": 0,
+                "config": {
+                  "index": 0,
+                  "enabled": true
+                },
+                "state": {
+                  "enabled": true,
+                  "name": "GigabitEthernet3",
+                  "ifindex": 3,
+                  "admin-status": "UP",
+                  "oper-status": "UP",
+                  "last-change": "1715487325262000000",
+                  "counters": {
+                    "in-octets": "0",
+                    "in-unicast-pkts": "0",
+                    "in-broadcast-pkts": "0",
+                    "in-multicast-pkts": "0",
+                    "in-discards": "0",
+                    "in-errors": "0",
+                    "in-unknown-protos": "0",
+                    "in-fcs-errors": "0",
+                    "out-octets": "61410",
+                    "out-unicast-pkts": "178",
+                    "out-broadcast-pkts": "0",
+                    "out-multicast-pkts": "0",
+                    "out-discards": "0",
+                    "out-errors": "0",
+                    "last-clear": "1715487161000000000"
+                  }
+                },
+                "openconfig-if-ip:ipv4": {
+                  "proxy-arp": {
+                    "state": {
+                      "mode": "DISABLE"
+                    }
+                  },
+                  "state": {
+                    "counters": {
+                      "in-pkts": "0",
+                      "in-octets": "0",
+                      "in-error-pkts": "0",
+                      "in-forwarded-pkts": "0",
+                      "in-forwarded-octets": "0",
+                      "in-discarded-pkts": "0",
+                      "out-pkts": "0",
+                      "out-octets": "0",
+                      "out-error-pkts": "0",
+                      "out-forwarded-pkts": "0",
+                      "out-forwarded-octets": "0",
+                      "out-discarded-pkts": "0"
+                    }
+                  }
+                },
+                "openconfig-if-ip:ipv6": {
+                  "config": {
+                    "enabled": false
+                  },
+                  "state": {
+                    "enabled": false,
+                    "counters": {
+                      "in-pkts": "0",
+                      "in-octets": "0",
+                      "in-error-pkts": "0",
+                      "in-forwarded-pkts": "0",
+                      "in-forwarded-octets": "0",
+                      "in-discarded-pkts": "0",
+                      "out-pkts": "0",
+                      "out-octets": "0",
+                      "out-error-pkts": "0",
+                      "out-forwarded-pkts": "0",
+                      "out-forwarded-octets": "0",
+                      "out-discarded-pkts": "0"
+                    }
+                  }
+                }
+              }
+            ]
+          },
+          "openconfig-if-ethernet:ethernet": {
+            "config": {
+              "mac-address": "52:54:00:07:cd:85",
+              "auto-negotiate": true,
+              "enable-flow-control": true
+            },
+            "state": {
+              "mac-address": "52:54:00:07:cd:85",
+              "auto-negotiate": true,
+              "port-speed": "openconfig-if-ethernet:SPEED_1GB",
+              "enable-flow-control": false,
+              "hw-mac-address": "52:54:00:07:cd:85",
+              "negotiated-duplex-mode": "FULL",
+              "negotiated-port-speed": "openconfig-if-ethernet:SPEED_1GB",
+              "counters": {
+                "in-mac-control-frames": "0",
+                "in-mac-pause-frames": "0",
+                "in-oversize-frames": "0",
+                "in-jabber-frames": "0",
+                "in-fragment-frames": "0",
+                "in-8021q-frames": "0",
+                "in-crc-errors": "0",
+                "out-mac-control-frames": "0",
+                "out-mac-pause-frames": "0",
+                "out-8021q-frames": "0"
+              }
+            }
+          }
+        },
+        {
+          "name": "GigabitEthernet4",
+          "config": {
+            "name": "GigabitEthernet4",
+            "type": "iana-if-type:ethernetCsmacd",
+            "enabled": true
+          },
+          "state": {
+            "name": "GigabitEthernet4",
+            "type": "iana-if-type:ethernetCsmacd",
+            "enabled": true,
+            "ifindex": 4,
+            "admin-status": "UP",
+            "oper-status": "UP",
+            "last-change": "1715487325270000000",
+            "counters": {
+              "in-octets": "745181",
+              "in-unicast-pkts": "10846",
+              "in-broadcast-pkts": "0",
+              "in-multicast-pkts": "0",
+              "in-discards": "0",
+              "in-errors": "0",
+              "in-unknown-protos": "0",
+              "in-fcs-errors": "0",
+              "out-octets": "977808",
+              "out-unicast-pkts": "12941",
+              "out-broadcast-pkts": "0",
+              "out-multicast-pkts": "0",
+              "out-discards": "0",
+              "out-errors": "0",
+              "last-clear": "1715487161000000000"
+            }
+          },
+          "subinterfaces": {
+            "subinterface": [
+              {
+                "index": 0,
+                "config": {
+                  "index": 0,
+                  "enabled": true
+                },
+                "state": {
+                  "enabled": true,
+                  "name": "GigabitEthernet4",
+                  "ifindex": 4,
+                  "admin-status": "UP",
+                  "oper-status": "UP",
+                  "last-change": "1715487325270000000",
+                  "counters": {
+                    "in-octets": "745181",
+                    "in-unicast-pkts": "10846",
+                    "in-broadcast-pkts": "0",
+                    "in-multicast-pkts": "0",
+                    "in-discards": "0",
+                    "in-errors": "0",
+                    "in-unknown-protos": "0",
+                    "in-fcs-errors": "0",
+                    "out-octets": "977808",
+                    "out-unicast-pkts": "12941",
+                    "out-broadcast-pkts": "0",
+                    "out-multicast-pkts": "0",
+                    "out-discards": "0",
+                    "out-errors": "0",
+                    "last-clear": "1715487161000000000"
+                  }
+                },
+                "openconfig-if-ip:ipv4": {
+                  "proxy-arp": {
+                    "state": {
+                      "mode": "DISABLE"
+                    }
+                  },
+                  "state": {
+                    "counters": {
+                      "in-pkts": "0",
+                      "in-octets": "0",
+                      "in-error-pkts": "0",
+                      "in-forwarded-pkts": "0",
+                      "in-forwarded-octets": "0",
+                      "in-discarded-pkts": "0",
+                      "out-pkts": "0",
+                      "out-octets": "0",
+                      "out-error-pkts": "0",
+                      "out-forwarded-pkts": "0",
+                      "out-forwarded-octets": "0",
+                      "out-discarded-pkts": "0"
+                    }
+                  }
+                },
+                "openconfig-if-ip:ipv6": {
+                  "config": {
+                    "enabled": false
+                  },
+                  "state": {
+                    "enabled": false,
+                    "counters": {
+                      "in-pkts": "0",
+                      "in-octets": "0",
+                      "in-error-pkts": "0",
+                      "in-forwarded-pkts": "0",
+                      "in-forwarded-octets": "0",
+                      "in-discarded-pkts": "0",
+                      "out-pkts": "0",
+                      "out-octets": "0",
+                      "out-error-pkts": "0",
+                      "out-forwarded-pkts": "0",
+                      "out-forwarded-octets": "0",
+                      "out-discarded-pkts": "0"
+                    }
+                  }
+                }
+              },
+              {
+                "index": 101,
+                "config": {
+                  "index": 101,
+                  "enabled": true
+                },
+                "state": {
+                  "enabled": true,
+                  "name": "GigabitEthernet4",
+                  "ifindex": 7,
+                  "admin-status": "UP",
+                  "oper-status": "UP",
+                  "last-change": "1715487324270000000",
+                  "counters": {
+                    "in-octets": "0",
+                    "in-unicast-pkts": "0",
+                    "in-broadcast-pkts": "0",
+                    "in-multicast-pkts": "0",
+                    "in-discards": "0",
+                    "in-errors": "0",
+                    "in-unknown-protos": "0",
+                    "in-fcs-errors": "0",
+                    "out-octets": "0",
+                    "out-unicast-pkts": "0",
+                    "out-broadcast-pkts": "0",
+                    "out-multicast-pkts": "0",
+                    "out-discards": "0",
+                    "out-errors": "0",
+                    "last-clear": "0"
+                  }
+                },
+                "openconfig-if-ip:ipv4": {
+                  "addresses": {
+                    "address": [
+                      {
+                        "ip": "10.1.101.1",
+                        "config": {
+                          "ip": "10.1.101.1",
+                          "prefix-length": 24
+                        },
+                        "state": {
+                          "ip": "10.1.101.1",
+                          "prefix-length": 24
+                        }
+                      }
+                    ]
+                  },
+                  "proxy-arp": {
+                    "state": {
+                      "mode": "DISABLE"
+                    }
+                  },
+                  "state": {
+                    "counters": {
+                      "in-pkts": "336",
+                      "in-octets": "28896",
+                      "in-error-pkts": "0",
+                      "in-forwarded-pkts": "0",
+                      "in-forwarded-octets": "0",
+                      "in-discarded-pkts": "0",
+                      "out-pkts": "6012",
+                      "out-octets": "354912",
+                      "out-error-pkts": "0",
+                      "out-forwarded-pkts": "6012",
+                      "out-forwarded-octets": "0",
+                      "out-discarded-pkts": "0"
+                    }
+                  }
+                },
+                "openconfig-if-ip:ipv6": {
+                  "config": {
+                    "enabled": false
+                  },
+                  "state": {
+                    "enabled": false,
+                    "counters": {
+                      "in-pkts": "0",
+                      "in-octets": "0",
+                      "in-error-pkts": "0",
+                      "in-forwarded-pkts": "0",
+                      "in-forwarded-octets": "0",
+                      "in-discarded-pkts": "0",
+                      "out-pkts": "0",
+                      "out-octets": "0",
+                      "out-error-pkts": "0",
+                      "out-forwarded-pkts": "0",
+                      "out-forwarded-octets": "0",
+                      "out-discarded-pkts": "0"
+                    }
+                  }
+                }
+              },
+              {
+                "index": 102,
+                "config": {
+                  "index": 102,
+                  "description": "## data-vlan 102 ##",
+                  "enabled": true
+                },
+                "state": {
+                  "enabled": true,
+                  "name": "GigabitEthernet4",
+                  "ifindex": 8,
+                  "admin-status": "UP",
+                  "oper-status": "UP",
+                  "last-change": "1715487325270000000",
+                  "counters": {
+                    "in-octets": "0",
+                    "in-unicast-pkts": "0",
+                    "in-broadcast-pkts": "0",
+                    "in-multicast-pkts": "0",
+                    "in-discards": "0",
+                    "in-errors": "0",
+                    "in-unknown-protos": "0",
+                    "in-fcs-errors": "0",
+                    "out-octets": "0",
+                    "out-unicast-pkts": "0",
+                    "out-broadcast-pkts": "0",
+                    "out-multicast-pkts": "0",
+                    "out-discards": "0",
+                    "out-errors": "0",
+                    "last-clear": "0"
+                  }
+                },
+                "openconfig-if-ip:ipv4": {
+                  "addresses": {
+                    "address": [
+                      {
+                        "ip": "10.1.102.1",
+                        "config": {
+                          "ip": "10.1.102.1",
+                          "prefix-length": 24
+                        },
+                        "state": {
+                          "ip": "10.1.102.1",
+                          "prefix-length": 24
+                        }
+                      }
+                    ]
+                  },
+                  "proxy-arp": {
+                    "state": {
+                      "mode": "DISABLE"
+                    }
+                  },
+                  "state": {
+                    "counters": {
+                      "in-pkts": "336",
+                      "in-octets": "28896",
+                      "in-error-pkts": "0",
+                      "in-forwarded-pkts": "0",
+                      "in-forwarded-octets": "0",
+                      "in-discarded-pkts": "0",
+                      "out-pkts": "6015",
+                      "out-octets": "355086",
+                      "out-error-pkts": "0",
+                      "out-forwarded-pkts": "6015",
+                      "out-forwarded-octets": "0",
+                      "out-discarded-pkts": "0"
+                    }
+                  }
+                },
+                "openconfig-if-ip:ipv6": {
+                  "config": {
+                    "enabled": false
+                  },
+                  "state": {
+                    "enabled": false,
+                    "counters": {
+                      "in-pkts": "0",
+                      "in-octets": "0",
+                      "in-error-pkts": "0",
+                      "in-forwarded-pkts": "0",
+                      "in-forwarded-octets": "0",
+                      "in-discarded-pkts": "0",
+                      "out-pkts": "0",
+                      "out-octets": "0",
+                      "out-error-pkts": "0",
+                      "out-forwarded-pkts": "0",
+                      "out-forwarded-octets": "0",
+                      "out-discarded-pkts": "0"
+                    }
+                  }
+                }
+              },
+              {
+                "index": 105,
+                "config": {
+                  "index": 105,
+                  "enabled": true
+                },
+                "state": {
+                  "enabled": true,
+                  "name": "GigabitEthernet4",
+                  "ifindex": 9,
+                  "admin-status": "UP",
+                  "oper-status": "UP",
+                  "last-change": "1715487325270000000",
+                  "counters": {
+                    "in-octets": "0",
+                    "in-unicast-pkts": "0",
+                    "in-broadcast-pkts": "0",
+                    "in-multicast-pkts": "0",
+                    "in-discards": "0",
+                    "in-errors": "0",
+                    "in-unknown-protos": "0",
+                    "in-fcs-errors": "0",
+                    "out-octets": "0",
+                    "out-unicast-pkts": "0",
+                    "out-broadcast-pkts": "0",
+                    "out-multicast-pkts": "0",
+                    "out-discards": "0",
+                    "out-errors": "0",
+                    "last-clear": "0"
+                  }
+                },
+                "openconfig-if-ip:ipv4": {
+                  "addresses": {
+                    "address": [
+                      {
+                        "ip": "10.1.105.1",
+                        "config": {
+                          "ip": "10.1.105.1",
+                          "prefix-length": 24
+                        },
+                        "state": {
+                          "ip": "10.1.105.1",
+                          "prefix-length": 24
+                        }
+                      }
+                    ]
+                  },
+                  "proxy-arp": {
+                    "config": {
+                      "mode": "DISABLE"
+                    },
+                    "state": {
+                      "mode": "DISABLE"
+                    }
+                  },
+                  "state": {
+                    "counters": {
+                      "in-pkts": "0",
+                      "in-octets": "0",
+                      "in-error-pkts": "0",
+                      "in-forwarded-pkts": "0",
+                      "in-forwarded-octets": "0",
+                      "in-discarded-pkts": "0",
+                      "out-pkts": "168",
+                      "out-octets": "15960",
+                      "out-error-pkts": "0",
+                      "out-forwarded-pkts": "168",
+                      "out-forwarded-octets": "0",
+                      "out-discarded-pkts": "0"
+                    }
+                  }
+                },
+                "openconfig-if-ip:ipv6": {
+                  "config": {
+                    "enabled": false
+                  },
+                  "state": {
+                    "enabled": false,
+                    "counters": {
+                      "in-pkts": "0",
+                      "in-octets": "0",
+                      "in-error-pkts": "0",
+                      "in-forwarded-pkts": "0",
+                      "in-forwarded-octets": "0",
+                      "in-discarded-pkts": "0",
+                      "out-pkts": "0",
+                      "out-octets": "0",
+                      "out-error-pkts": "0",
+                      "out-forwarded-pkts": "0",
+                      "out-forwarded-octets": "0",
+                      "out-discarded-pkts": "0"
+                    }
+                  }
+                }
+              }
+            ]
+          },
+          "openconfig-if-ethernet:ethernet": {
+            "config": {
+              "mac-address": "52:54:00:0e:ec:89",
+              "auto-negotiate": true,
+              "enable-flow-control": true
+            },
+            "state": {
+              "mac-address": "52:54:00:0e:ec:89",
+              "auto-negotiate": true,
+              "port-speed": "openconfig-if-ethernet:SPEED_1GB",
+              "enable-flow-control": false,
+              "hw-mac-address": "52:54:00:0e:ec:89",
+              "negotiated-duplex-mode": "FULL",
+              "negotiated-port-speed": "openconfig-if-ethernet:SPEED_1GB",
+              "counters": {
+                "in-mac-control-frames": "0",
+                "in-mac-pause-frames": "0",
+                "in-oversize-frames": "0",
+                "in-jabber-frames": "0",
+                "in-fragment-frames": "0",
+                "in-8021q-frames": "10742",
+                "in-crc-errors": "0",
+                "out-mac-control-frames": "0",
+                "out-mac-pause-frames": "0",
+                "out-8021q-frames": "177"
+              }
+            }
+          }
+        },
+        {
+          "name": "Tunnel1",
+          "config": {
+            "name": "Tunnel1",
+            "type": "iana-if-type:tunnel",
+            "enabled": true
+          },
+          "state": {
+            "name": "Tunnel1",
+            "type": "iana-if-type:tunnel",
+            "enabled": true,
+            "ifindex": 10,
+            "admin-status": "UP",
+            "oper-status": "UP",
+            "last-change": "1715491268764000000",
+            "counters": {
+              "in-octets": "0",
+              "in-unicast-pkts": "0",
+              "in-broadcast-pkts": "0",
+              "in-multicast-pkts": "0",
+              "in-discards": "0",
+              "in-errors": "0",
+              "in-unknown-protos": "0",
+              "in-fcs-errors": "0",
+              "out-octets": "0",
+              "out-unicast-pkts": "0",
+              "out-broadcast-pkts": "0",
+              "out-multicast-pkts": "0",
+              "out-discards": "0",
+              "out-errors": "0",
+              "last-clear": "1715491268278000000"
+            }
+          },
+          "subinterfaces": {
+            "subinterface": [
+              {
+                "index": 0,
+                "config": {
+                  "index": 0,
+                  "enabled": true
+                },
+                "state": {
+                  "enabled": true,
+                  "name": "Tunnel1",
+                  "ifindex": 10,
+                  "admin-status": "UP",
+                  "oper-status": "UP",
+                  "last-change": "1715491268764000000",
+                  "counters": {
+                    "in-octets": "0",
+                    "in-unicast-pkts": "0",
+                    "in-broadcast-pkts": "0",
+                    "in-multicast-pkts": "0",
+                    "in-discards": "0",
+                    "in-errors": "0",
+                    "in-unknown-protos": "0",
+                    "in-fcs-errors": "0",
+                    "out-octets": "0",
+                    "out-unicast-pkts": "0",
+                    "out-broadcast-pkts": "0",
+                    "out-multicast-pkts": "0",
+                    "out-discards": "0",
+                    "out-errors": "0",
+                    "last-clear": "1715491268278000000"
+                  }
+                },
+                "openconfig-if-ip:ipv4": {
+                  "addresses": {
+                    "address": [
+                      {
+                        "ip": "10.10.1.1",
+                        "config": {
+                          "ip": "10.10.1.1",
+                          "prefix-length": 30
+                        },
+                        "state": {
+                          "ip": "10.10.1.1",
+                          "prefix-length": 30
+                        }
+                      }
+                    ]
+                  },
+                  "proxy-arp": {
+                    "state": {
+                      "mode": "DISABLE"
+                    }
+                  },
+                  "state": {
+                    "counters": {
+                      "in-pkts": "0",
+                      "in-octets": "0",
+                      "in-error-pkts": "0",
+                      "in-forwarded-pkts": "0",
+                      "in-forwarded-octets": "0",
+                      "in-discarded-pkts": "0",
+                      "out-pkts": "0",
+                      "out-octets": "0",
+                      "out-error-pkts": "0",
+                      "out-forwarded-pkts": "0",
+                      "out-forwarded-octets": "0",
+                      "out-discarded-pkts": "0"
+                    }
+                  }
+                },
+                "openconfig-if-ip:ipv6": {
+                  "config": {
+                    "enabled": false
+                  },
+                  "state": {
+                    "enabled": false,
+                    "counters": {
+                      "in-pkts": "0",
+                      "in-octets": "0",
+                      "in-error-pkts": "0",
+                      "in-forwarded-pkts": "0",
+                      "in-forwarded-octets": "0",
+                      "in-discarded-pkts": "0",
+                      "out-pkts": "0",
+                      "out-octets": "0",
+                      "out-error-pkts": "0",
+                      "out-forwarded-pkts": "0",
+                      "out-forwarded-octets": "0",
+                      "out-discarded-pkts": "0"
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+  }

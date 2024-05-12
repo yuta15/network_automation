@@ -1,9 +1,9 @@
 
 
-from modules import merge_subinterfaces
+from modules import merge_interface_ethernet, merge_interface_subinterface, parse_interface_state
 
 
-def generate_all_interface_data(all_interface_list):
+def merge_interfaces(all_interface_list):
     """
     複数のインターフェースの情報をマージする関数
     args:
@@ -19,11 +19,11 @@ def generate_all_interface_data(all_interface_list):
     """
     return_all_interfaces = {}
     for interface_dict in all_interface_list:
-        return_all_interfaces = return_all_interfaces | merge_interface_data(interface_dict)
+        return_all_interfaces = return_all_interfaces | merge_interface(interface_dict)
     return return_all_interfaces
 
 
-def merge_interface_data(interface_dict):
+def merge_interface(interface_dict):
     """
     単一のインターフェースのethernet, subinterface, config, state情報をマージする関数
     args: 
@@ -49,13 +49,15 @@ def merge_interface_data(interface_dict):
                 interface_name = interface_dict.get(interface_key)
             case 'subinterfaces':
                 data_dict = interface_dict.get(interface_key)
-                sub_int_dict = merge_subinterfaces.merge_sub_ints(data_dict.get('subinterface'))
+                sub_int_dict = merge_interface_subinterface.merge_sub_ints(data_dict.get('subinterface'))
+            case 'openconfig-if-ethernet:ethernet':
+                data_dict = interface_dict.get(interface_key)
+                ethernet_dict = merge_interface_ethernet.merge_ethernet(data_dict)
+            case 'state':
+                data_dict = interface_dict.get(interface_key)
+                state_dict = parse_interface_state.parse_int_state(data_dict)
             # case 'config':
                 # config用のコードを記載
-            # case 'state':
-                # state用のコードを記載
-            # case 'openconfig-if-ethernet:ethernet':
-                # ethernet用のコードを記載
-    return_interface_dict[interface_name] = ethernet_dict | sub_int_dict | config_dict | state_dict
+    return_interface_dict[interface_name] =  state_dict | ethernet_dict | sub_int_dict | config_dict 
     return return_interface_dict
 
