@@ -8,7 +8,7 @@ from .merge_interface_data import generate_all_interface_data
 class Host:
     """
     ネットワーク機器のClass
-    properties:
+    args:
         host: str
             情報を取得するネットワーク機器のドメイン or IP address
         username: str
@@ -17,7 +17,7 @@ class Host:
             パスワードの文字列
     return: None
     remarks:
-
+        get以外の機能は未実装
     """
     def __init__(self, host, username, password) -> None:
         self.host = host
@@ -31,11 +31,16 @@ class Host:
         """
         OSバージョン、S/N、稼働時間を取得する関数。
         現状、OSバージョン、S/Nのみ取得可能。
-        今後稼働時間の取得を実装
-        Return: dict
-            バージョン、s/n、稼働時間をdictでreturn
-            *up_timeは未実装
-            {'version': str, 's/n':str, *up_time, str}
+        args:
+
+        return:
+            host_data: dict
+            {
+                'version': str, 
+                's/n':str, 
+                *up_time, str
+            }
+            *未実装
         remarks:
             Cisco固有のpathを使用しているため、OpenConfigにて実装可能である場合は修正
         """
@@ -53,7 +58,10 @@ class Host:
     def get_interface_all(self):
         """
         全インターフェース情報を取得する関数
-        Return: dict
+        args: 
+        
+        return:
+            return_interfaces_data: dict
             インターフェース情報をDictでreturn
         remarks:
             OpenConfigで実装。
@@ -62,5 +70,7 @@ class Host:
         """        
         urls = [self.base_url + '/openconfig-interfaces:interfaces']
         status_code_list, content_list = get_data(self.login, urls)
+        return_interfaces_data = None
         for content in content_list:
-            generate_all_interface_data(list(content.values())[0])
+            return_interfaces_data = generate_all_interface_data(content.get('interface'))
+        return return_interfaces_data

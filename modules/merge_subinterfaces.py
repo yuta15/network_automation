@@ -1,10 +1,13 @@
 
-def merge_subints(interface_subints):
+
+from modules import parse_subinterface
+
+
+def merge_sub_ints(sub_int_list) -> dict:
     """
-    サブインターフェースの情報を抽出・成形するための関数。
-    properties:
+    単一のサブインターフェースの情報をマージするための関数。
+    args:
         interface_subint: dict
-            yang-modelに従ったサブインターフェースdict
     return: dict
         以下の形式で応答
         {
@@ -12,22 +15,23 @@ def merge_subints(interface_subints):
             subint_index1:{},
             subint_index1:{},
         }
-    2025/05/11 subintの情報のみ取得した状態。
-    これを加工して必要な情報を取得する。
-    現状values()にて取得したデータはリスト型となっている。
+    remarks:
     """
-    for subint in interface_subints.values():
-        print(subint)
-        print('-------------------------------------')
-        # merge_subint(subint)
+    return_sub_ints_dict = {}
+    sub_int_data_dict = {}
+    sub_int_dict = {}
+    for sub_int in sub_int_list:
+        sub_int_dict = merge_sub_int(sub_int)
+        sub_int_data_dict = sub_int_data_dict | sub_int_dict
+    return_sub_ints_dict['subinterfaces'] = sub_int_dict
+    return return_sub_ints_dict
 
 
-def merge_subint(interface_subint):
+def merge_sub_int(sub_int_dict) -> dict:
     """
-    単一のサブインターフェースの情報から必要な情報を抽出・成形するための関数。
-    properties:
+    parse関数にて抽出・成形した単一のサブインターフェースの情報をマージするための関数
+    args:
         interface_subint: dict
-            単一のサブインターフェースの情報
     return: dict
         index:{
             'enabled': str,
@@ -38,67 +42,60 @@ def merge_subint(interface_subint):
             'prefix-length': str,
             'discription': str,
         }
+    remarks:
+        subinterface_config, subinterface_state, subinteraface_ipv6については未実装
     """
-    subinte_index, subint_config, subint_state, subint_ipv4, subint_ipv6 = interface_subint.values()
+    return_sub_int_dict = {}
+    config_dict = {}
+    state_dict = {}
+    ipv4_dict = {}
+    ipv6_dict = {}
+    sub_int_index = ""
+    sub_int_keys = ['index', 'config', 'state', 'openconfig-if-ip:ipv4', 'openconfig-if-ip:ipv6']
+    for sub_int_key in sub_int_keys:
+        match sub_int_key:
+            case 'index':
+                sub_int_index = sub_int_dict.get(sub_int_key)
+            case 'openconfig-if-ip:ipv4':
+                ipv4_dict = merge_sub_int_ipv4(sub_int_dict.get(sub_int_key))
+            # case 'config':
+            #     # configの処理を記述
+            # case 'state':
+            #     # stateの処理を記述
+            # case 'openconfig-if-ip:ipv6':
+            #     # openconfig-if-ip:ipv6の処理を記述
+    return_sub_int_dict[sub_int_index] = config_dict | state_dict | ipv4_dict | ipv6_dict
+    return return_sub_int_dict
 
 
-# def parse_subint_config(subint_config):
-    """
-    サブインターフェースコンフィグ情報を解析する関数。実装予定
-    """
-
-
-# def parse_subint_state(subint_state)
-    """
-    サブインターフェースステータス情報を解析する関数。実装予定
-    """
-# parse_subint_counter(subint_state_counter):
-    """
-    サブインターフェースカウンタ情報を解析する関数。実装予定
-    """
-
-
-# def parse_subint_ipv4(subint_ipv4):
+def merge_sub_int_ipv4(sub_int_ipv4_dict) -> dict:
     """
     サブインターフェースIPv4情報を解析する関数。
+    properties:
+        sub_int_ipv4_dict: dict
+    return:
+        return_sub_int_ipv4: dict
+        {
+            ip:
+            prefix-length
+            *proxy-arp
+            *state
+        }
+        *未実装
     """
-# def parse_subint_ipv4_addr(subint_ipv4_addr):
-    """
-    サブインターフェースIPv4アドレス情報を解析する関数。
-    """
-# def parse_subint_ipv4_proxy_arp():
-    """
-    サブインターフェースIPv4 Proxy-arp情報を解析する関数。
-    """
-# def parse_subint_ipv4_state():
-    """
-    サブインターフェースステータス情報を解析する関数。
-    """
-# def parse_subint_ipv4_counter():
-    """
-    サブインターフェースステータスカウンター情報を解析する関数。
-    """
-    
-    
-# def parse_subint_ipv6(subint_ipv6):
-    """
-    サブインターフェースIPv6情報を解析する関数。
-    """
-# def parse_subint_ipv6_addr(subint_ipv6_addr):
-    """
-    サブインターフェースIPv6アドレス情報を解析する関数。
-    """
-# def parse_subint_ipv6_proxy_arp():
-    """
-    サブインターフェースIPv6 Proxy-arp情報を解析する関数。
-    """
-# def parse_subint_ipv6_state():
-    """
-    サブインターフェースステータス情報を解析する関数。
-    """
-# def parse_subint_ipv6_counter():
-    """
-    サブインターフェースステータスカウンター情報を解析する関数。
-    """
-
+    return_sub_int_ipv4_dict = {}
+    addresses_dict = {}
+    proxy_arp_dict = {}
+    state_dict = {}
+    ipv4_keys = ['addresses', 'proxy-arp', 'state']
+    for ipv4_key in ipv4_keys:
+        match ipv4_key:
+            case 'addresses':
+                addresses_dict = parse_subinterface.parse_subint_ipv4_addr(sub_int_ipv4_dict.get(ipv4_key))                
+            # case 'proxy-arp':
+                # proxy-arp処理
+            # case 'state':
+                # state処理
+    return_sub_int_ipv4_dict = addresses_dict | proxy_arp_dict | state_dict
+    return return_sub_int_ipv4_dict
 

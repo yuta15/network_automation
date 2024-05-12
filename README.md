@@ -15,18 +15,20 @@ URL生成：https://t8csp.csb.app/</br>
 
 # 環境変数
 |変数名|役割|デフォルト値|環境差分|
-|:----|:----|:---------|:-------|
-|TEST |テスト|test      |test    |
-|||||
+|:------------------------|:-------------------------------|:---------|:---------------------------------------------|
+|NETWORK_TEST_HOST        |テスト機器IPアドレス or ドメイン名|None      |実環境ではAPIがクエリーで受け取った情報を使用する。|
+|NETWORK_TEST_USERNAME    |ユーザー名                      |None      |実環境ではAPIがクエリーで受け取った情報を使用する。|
+|NETWORK_TEST_PASSWORD    |テスト機器のパスワード           |None      |実環境ではAPIがクエリーで受け取った情報を使用する。|
+
 
 ---
 
 # 基本ルール
-モデルは<a link="https://openconfig.net/projects/models/schemadocs/">OpenConfig Data Model</a>に準拠するが、必要に応じて<a link="https://github.com/YangModels">Yang Models</a>を使用する。
-可能な限りベンダーニュートラルに近づけるが、必要な情報が取得できない場合はベンダー固有のYANGモジュールを使用する。
-使用するプロトコルは、取得可能な場合は、RESTCONFにてネットワーク機器の設定情報を取得する。
-該当の情報が原則JSON形式で取得することが難しい場合、NETCONFを使用してXML形式で情報を取得する。
-FastAPIにて差分を吸収し、必要な情報をJSON形式にして応答する。
+・原則<a link="https://openconfig.net/projects/models/schemadocs/">OpenConfig Data Model</a>に準拠。
+・必要に応じて<a link="https://github.com/YangModels/yang">Yang-Models</a>を使用。
+・上記にて対応不可である場合は、ベンダー固有のYANGモジュールを使用。
+・使用するプロトコルは、<a link="https://tex2e.github.io/rfc-translater/html/rfc8040.html">RESTCONF</a>・<a link="https://tex2e.github.io/rfc-translater/html/rfc6241.html">NETCONF</a>にてネットワーク機器の設定情報を取得する。
+・<a link="https://fastapi.tiangolo.com/ja/">FastAPI</a>にて差分を吸収し、必要な情報をJSON形式にして応答する。
 
 ---
 
@@ -43,7 +45,7 @@ FastAPIにて差分を吸収し、必要な情報をJSON形式にして応答す
             ├ 
         ├ Interfaces
             ├ Interface
-                ├ VLAN ID
+                ├ VLAN ID * no path *
                 ├ IP address
                 ├ prefixex
                 ├ Interface status

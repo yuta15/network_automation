@@ -27,7 +27,7 @@ def get_data(login_data, urls):
     for url in urls:
         data = session.get(url, auth=HTTPBasicAuth(login_data["username"], login_data["password"]), headers=get_headers, verify=False)
         status_code.append(data.status_code)
-        content_data_origin = json.loads(data.content)        
+        content_data_origin = json.loads(data.content)
         for content in content_data_origin.values():
             content_data.append(content)
     session.close()
