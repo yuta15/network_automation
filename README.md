@@ -24,11 +24,11 @@ URL生成：https://t8csp.csb.app/</br>
 ---
 
 # 基本ルール
-・原則<a link="https://openconfig.net/projects/models/schemadocs/">OpenConfig Data Model</a>に準拠。
-・必要に応じて<a link="https://github.com/YangModels/yang">Yang-Models</a>を使用。
-・上記にて対応不可である場合は、ベンダー固有のYANGモジュールを使用。
-・使用するプロトコルは、<a link="https://tex2e.github.io/rfc-translater/html/rfc8040.html">RESTCONF</a>・<a link="https://tex2e.github.io/rfc-translater/html/rfc6241.html">NETCONF</a>にてネットワーク機器の設定情報を取得する。
-・<a link="https://fastapi.tiangolo.com/ja/">FastAPI</a>にて差分を吸収し、必要な情報をJSON形式にして応答する。
+- 原則<a link="https://openconfig.net/projects/models/schemadocs/">OpenConfig Data Model</a>に準拠。
+- 必要に応じて<a link="https://github.com/YangModels/yang">Yang-Models</a>を使用。
+- 上記にて対応不可である場合は、ベンダー固有のYANGモジュールを使用。
+- 使用するプロトコルは、<a link="https://tex2e.github.io/rfc-translater/html/rfc8040.html">RESTCONF</a>・<a link="https://tex2e.github.io/rfc-translater/html/rfc6241.html">NETCONF</a>にてネットワーク機器の設定情報を取得する。
+- <a link="https://fastapi.tiangolo.com/ja/">FastAPI</a>にて差分を吸収し、必要な情報をJSON形式にして応答する。
 
 ---
 
