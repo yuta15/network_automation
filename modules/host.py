@@ -1,8 +1,8 @@
-from os import environ
-import json
 
-from .get_data import get_data
-from .merge_interface import merge_interfaces
+
+from modules.control.get_data import get_data
+from modules.network_functions.interface.interface import interface
+from modules.network_functions.interface.interfaces import interfaces
 
 
 class Host:
@@ -72,5 +72,5 @@ class Host:
         status_code_list, content_list = get_data(self.login, urls)
         return_interfaces_data = None
         for content in content_list:
-            return_interfaces_data = merge_interfaces(content.get('interface'))
+            return_interfaces_data = interfaces(content.get('interface'))
         return return_interfaces_data

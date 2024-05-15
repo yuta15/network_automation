@@ -2,7 +2,7 @@ import json
 import os
 from fastapi import FastAPI
 
-from modules.get_network_device_information import Host
+from modules.host import Host
 
 app = FastAPI()
 

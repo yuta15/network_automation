@@ -1,4 +1,7 @@
-def parse_int_state(int_state_dict):
+
+
+
+def parse_state(int_state_dict):
     """
     インターフェースステータス情報をマージするための関数
     args:

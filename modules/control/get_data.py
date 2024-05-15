@@ -18,7 +18,6 @@ def get_data(login_data, urls):
             
     Return: dict
     """
-    
     status_code = []
     content_data = []
     get_headers = {'Accept': 'application/yang-data+json'}

@@ -1,4 +1,6 @@
-from modules import parse_interface_ethernet
+
+
+from modules.network_functions.interface.parsers.parse_ethernet import parse_ethernet
 
 
 def merge_ethernet(ethernet_dict):
@@ -31,7 +33,7 @@ def merge_ethernet(ethernet_dict):
         match ethernet_key:
             case 'state':
                 ethernet_data = ethernet_dict.get(ethernet_key)
-                ethernet_state_dict = parse_interface_ethernet.parse_ethernet_state(ethernet_data)
+                ethernet_state_dict = parse_ethernet(ethernet_data)
             # case 'config':
             #     ethernet_config_dict = parse_ethernet.parse_ethernet_config(ethernet_key)
 
