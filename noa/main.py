@@ -2,7 +2,7 @@ import json
 import os
 from fastapi import FastAPI
 
-from modules.host import Host
+from host.host import Host
 
 app = FastAPI()
 

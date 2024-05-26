@@ -1,7 +1,7 @@
 
 
 
-from modules.network_functions.interface.interface import interface
+from noa.network_functions.interface.interface import interface
 
 
 def interfaces(all_interface_list):

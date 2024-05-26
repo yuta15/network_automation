@@ -1,6 +1,6 @@
 
 
-from modules.network_functions.interface.merge.merge_subint import merge_subint
+from noa.network_functions.interface.merge.merge_subint import merge_subint
 
 
 def merge_all_subint(sub_int_list) -> dict:

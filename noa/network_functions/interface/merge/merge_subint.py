@@ -1,6 +1,6 @@
 
 
-from modules.network_functions.interface.merge.merge_subint_ipv4 import merge_subint_ipv4
+from noa.network_functions.interface.merge.merge_subint_ipv4 import merge_subint_ipv4
 
 
 def merge_subint(sub_int_dict) -> dict:

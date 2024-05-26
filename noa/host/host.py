@@ -1,8 +1,8 @@
 
 
-from modules.control.get_data import get_data
-from modules.network_functions.interface.interface import interface
-from modules.network_functions.interface.interfaces import interfaces
+from noa.control.get_data import get_data
+from noa.network_functions.interface.interface import interface
+from noa.network_functions.interface.interfaces import interfaces
 
 
 class Host:

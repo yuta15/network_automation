@@ -1,8 +1,8 @@
 
 
-from modules.network_functions.interface.merge.merge_all_subint import merge_all_subint
-from modules.network_functions.interface.merge.merge_ethernet import merge_ethernet
-from modules.network_functions.interface.merge.merge_state import merge_state
+from noa.network_functions.interface.merge.merge_all_subint import merge_all_subint
+from noa.network_functions.interface.merge.merge_ethernet import merge_ethernet
+from noa.network_functions.interface.merge.merge_state import merge_state
 
 
 def interface(interface_dict):

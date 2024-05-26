@@ -1,6 +1,6 @@
 
 
-from modules.network_functions.interface.parsers.parse_ethernet import parse_ethernet
+from noa.network_functions.interface.parsers.parse_ethernet import parse_ethernet
 
 
 def merge_ethernet(ethernet_dict):

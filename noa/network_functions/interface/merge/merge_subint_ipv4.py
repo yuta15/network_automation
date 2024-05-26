@@ -1,6 +1,6 @@
 
 
-from modules.network_functions.interface.parsers.parse_subint_ipv4_addr import parse_subint_ipv4_addr
+from noa.network_functions.interface.parsers.parse_subint_ipv4_addr import parse_subint_ipv4_addr
 
 
 def merge_subint_ipv4(sub_int_ipv4_dict) -> dict:

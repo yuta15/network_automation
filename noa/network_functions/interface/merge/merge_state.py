@@ -1,7 +1,7 @@
 
 
-from modules.network_functions.interface.parsers.parse_state import parse_state
-from modules.network_functions.interface.parsers.parse_state_counter import parse_state_counter
+from noa.network_functions.interface.parsers.parse_state import parse_state
+from noa.network_functions.interface.parsers.parse_state_counter import parse_state_counter
 
 
 def merge_state(int_state_dict, counter: bool = False):
