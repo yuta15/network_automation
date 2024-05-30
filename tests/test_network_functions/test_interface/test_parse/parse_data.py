@@ -1,12 +1,11 @@
-{
-    "state": {
-    "mac-address": "52:54:00:10:73:00",
-    "auto-negotiate": true,
-    "port-speed": "openconfig-if-ethernet:SPEED_1GB",
-    "enable-flow-control": false,
+test_ethernet_data = {
+    "mac-address": None,
+    "auto-negotiate": None,
+    "port-speed": None,
+    "enable-flow-control": False,
     "hw-mac-address": "52:54:00:10:73:00",
-    "negotiated-duplex-mode": "FULL",
-    "negotiated-port-speed": "openconfig-if-ethernet:SPEED_1GB",
+    "negotiated-duplex-mode": None,
+    "negotiated-port-speed": 'openconfig-if-ethernet:SPEED_1GB',
     "counters": {
         "in-mac-control-frames": "0",
         "in-mac-pause-frames": "0",
@@ -20,4 +19,4 @@
         "out-8021q-frames": "0"
         }
     }
-}
+    
