@@ -1,4 +1,4 @@
-test_ethernet_data = {
+test_parse_ethernet_data = {
     "mac-address": None,
     "auto-negotiate": None,
     "port-speed": None,
@@ -20,3 +20,47 @@ test_ethernet_data = {
         }
     }
     
+
+test_parse_state_data =  {
+    "name": "GigabitEthernet1",
+    "type": "iana-if-type:ethernetCsmacd",
+    "enabled": None,
+    "ifindex": 1,
+    "admin-status": None,
+    "oper-status": None,
+    "last-change": None,
+    "counters": {
+        "in-octets": "0",
+        "in-unicast-pkts": "0",
+        "in-broadcast-pkts": "0",
+        "in-multicast-pkts": "0",
+        "in-discards": "0",
+        "in-errors": "0",
+        "in-unknown-protos": "0",
+        "in-fcs-errors": "0",
+        "out-octets": "0",
+        "out-unicast-pkts": "0",
+        "out-broadcast-pkts": "0",
+        "out-multicast-pkts": "0",
+        "out-discards": "0",
+        "out-errors": "0",
+        "last-clear": "1715487161000000000"
+    }
+}
+
+
+test_parse_subint_ipv4_addr = {
+    "address": [
+        {
+        "ip": "10.10.1.1",
+        "config": {
+            "ip": "10.10.1.1",
+            "prefix-length": 30
+            },
+        "state": {
+            "ip": "10.10.1.1",
+            "prefix-length": 30
+            }
+        }
+    ]
+}

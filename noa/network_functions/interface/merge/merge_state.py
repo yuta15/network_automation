@@ -19,5 +19,4 @@ def merge_state(int_state_dict, counter: bool = False):
     if counter:
         return_int_state_dict['counter'] = parse_state_counter(int_state_dict.get('counter'))
     return_int_state_dict = return_int_state_dict | parse_state(int_state_dict)
-    # print(type(return_int_state_dict))
     return return_int_state_dict
