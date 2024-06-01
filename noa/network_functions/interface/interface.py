@@ -1,9 +1,7 @@
 
-
-from noa.network_functions.interface.merge.merge_all_subint import merge_all_subint
-from noa.network_functions.interface.merge.merge_ethernet import merge_ethernet
-from noa.network_functions.interface.merge.merge_state import merge_state
-
+from noa.network_functions.interface.extract.extract_ethernet import extract_ethernet
+from noa.network_functions.interface.extract.extract_subint import extract_subint
+from noa.network_functions.interface.extract.extract_state import extract_state
 
 def interface(interface_dict):
     """
@@ -31,13 +29,13 @@ def interface(interface_dict):
                 interface_name = interface_dict.get(interface_key)
             case 'subinterfaces':
                 data_dict = interface_dict.get(interface_key)
-                sub_int_dict = merge_all_subint(data_dict.get('subinterface'))
+                sub_int_dict = extract_subint(data_dict.get('subinterface'))
             case 'openconfig-if-ethernet:ethernet':
                 data_dict = interface_dict.get(interface_key)
-                ethernet_dict = merge_ethernet(data_dict)
+                ethernet_dict = extract_ethernet(data_dict)
             case 'state':
                 data_dict = interface_dict.get(interface_key)
-                state_dict = merge_state(data_dict)
+                state_dict = extract_state(data_dict)
             # case 'config':
                 # config用のコードを記載
     return_interface_dict[interface_name] =  state_dict | ethernet_dict | sub_int_dict | config_dict 
