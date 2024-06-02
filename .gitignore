@@ -1,3 +1,5 @@
-/__pycache__/*.pyc
-/modules/__pycache__/*.pyc
-/yang-model/*
+.vscode/*
+*.pyc
+__pycache__/
+**/__pycache__/**
+.pytest_cache/*

@@ -5,7 +5,7 @@ import jmespath
 from noa.network_functions.interface.extract.extract_subint import extract_subint
 
 
-def test_extract_subint():
+def test_extract_subint(conf):
     '''
     extract_state関数をテストするための関数
     example_interface.jsonから必要な情報を抽出し、返り値が想定通りであることを確認する。
@@ -22,13 +22,9 @@ def test_extract_subint():
         }
     }
     '''
-    json_path = os.getcwd() + '/example_interface.json'
-    with open(json_path, mode='r') as f:
-        base_data = json.loads(f.read())
-    
     subint_path = '"openconfig-interfaces:interfaces".interface[*].subinterfaces.subinterface[*]'
-    subint_args_list = jmespath.search(subint_path, base_data)
-    
+    subint_args_list = conf(subint_path)
+
     enbaled = 'enabled'
     admin_status = 'admin-status'
     oper_status = 'oper-status'
