@@ -1,0 +1,8 @@
+services:
+  noa:
+    build: .
+    volumes:
+      - .dockervenv:/src/.venv
+      - .:/src
+    ports:
+      - 80:8000
