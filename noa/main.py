@@ -2,7 +2,7 @@ import json
 import os
 from fastapi import FastAPI
 
-from host.host import Host
+from noa.host.host import Host
 
 app = FastAPI()
 
