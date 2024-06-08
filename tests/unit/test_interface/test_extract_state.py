@@ -1,9 +1,5 @@
-import os
-import json
-import jmespath
-
 from noa.network_functions.interface.extract.extract_state import extract_state
-
+from tests.mods.interface.correct_state_data import correct_state_data
 
 def test_extract_state(conf):
     '''
@@ -17,18 +13,10 @@ def test_extract_state(conf):
         last-change:
     }
     '''
-    state_path = '"openconfig-interfaces:interfaces".interface[*].state'
-    state_arg_list = conf(state_path)
+    state_path = ['"openconfig-interfaces:interfaces".interface[*].state']
+    state_arg_list = conf(state_path)[0]
 
-    enabled = 'enabled'
-    admin_status = 'admin-status'
-    oper_status = 'oper-status'
-    last_change = 'last-change'
-    keys = [enabled, admin_status, oper_status, last_change]
-    
-    correct_data_path = f'[*].["{enabled}","{admin_status}","{oper_status}","{last_change}"]'
-    correct_data_list = jmespath.search(correct_data_path, state_arg_list)
-    correct_dict_list = [dict(zip(keys, correct_val)) for correct_val in correct_data_list]
+    correct_dict_list = correct_state_data(state_arg_list)
     
     returned_state_list = []
     for state_data in state_arg_list:

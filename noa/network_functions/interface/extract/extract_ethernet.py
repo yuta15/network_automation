@@ -25,8 +25,8 @@ def extract_ethernet(eth_dict: dict) -> dict:
     dict_path = f'state.["{mac_addr}", "{auto_nego}", "{port_speed}", "{duplex}"]'
     
     eth_datas = jmespath.search(dict_path, eth_dict)
-    if eth_datas is None:
-        eth_datas = ['a'] * len(keys)
+    # print(eth_datas)
+    print(jmespath.search(dict_path, eth_dict))
     return_eth_dict = dict(zip(keys, eth_datas))
     
     return return_eth_dict 

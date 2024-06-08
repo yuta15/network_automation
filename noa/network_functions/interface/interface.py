@@ -10,6 +10,7 @@ def interface(interface_dict):
         interface_dict: dict
     return: dict
         interface_name:{
+            'state': {}
             'ethernet':{},
             'subinterfaces': {}
         }

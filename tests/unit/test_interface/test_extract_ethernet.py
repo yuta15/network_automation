@@ -1,6 +1,6 @@
-import jmespath
 
 from noa.network_functions.interface.extract.extract_ethernet import extract_ethernet
+from tests.mods.interface.correct_eth_data import correct_eth_data
 
 
 def test_extract_ethernet(conf):
@@ -14,22 +14,13 @@ def test_extract_ethernet(conf):
         "negotiated-duplex-mode"
     }
     """
-    eth_path = '"openconfig-interfaces:interfaces".interface[*]."openconfig-if-ethernet:ethernet"'
-    eth_arg_list = conf(eth_path)
+    eth_path = ['"openconfig-interfaces:interfaces".interface[*]."openconfig-if-ethernet:ethernet"']
+    eth_arg_list = conf(eth_path)[0]
     
-    mac_addr = 'mac-address'
-    auto_nego = 'auto-negotiate'
-    port_speed = 'port-speed'
-    duplex = 'negotiated-duplex-mode'
-    keys = [mac_addr, auto_nego, port_speed, duplex]
-    
-    correct_path = f'[*].state.["{mac_addr}", "{auto_nego}", "{port_speed}", "{duplex}"]'
-    correct_data_list = jmespath.search(correct_path,eth_arg_list)
-    correct_dict_list = [dict(zip(keys, corrent_val)) for corrent_val in correct_data_list]
+    correct_dict_list = correct_eth_data(eth_arg_list)
     returned_eth_list = []
     
     for eth in eth_arg_list:
         returned_eth_list.append(extract_ethernet(eth))
 
-    print(extract_ethernet('a'))
     assert returned_eth_list == correct_dict_list
