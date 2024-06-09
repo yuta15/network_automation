@@ -1,5 +1,5 @@
 from noa.network_functions.interface.extract.extract_state import extract_state
-from tests.mods.interface.correct_state_data import correct_state_data
+from tests.mods.interface.generate_test_data_state import generate_test_data_state
 
 def test_extract_state(conf):
     '''
@@ -15,12 +15,11 @@ def test_extract_state(conf):
     '''
     state_path = ['"openconfig-interfaces:interfaces".interface[*].state']
     state_arg_list = conf(state_path)[0]
-
-    correct_dict_list = correct_state_data(state_arg_list)
+    
+    correct_datas = generate_test_data_state(state_arg_list)
     
     returned_state_list = []
     for state_data in state_arg_list:
         returned_state_list.append(extract_state(state_data))
     
-    assert returned_state_list == correct_dict_list
-    print(extract_state([]))
+    assert returned_state_list == correct_datas

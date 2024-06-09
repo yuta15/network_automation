@@ -17,6 +17,6 @@ def conf():
         for json_path in json_paths:
             data.append(jmespath.search(json_path, base_data))
         return data
-    
+
     return _conf
 

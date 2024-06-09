@@ -1,7 +1,7 @@
 import jmespath
 
 
-def extract_subint(subints: list) -> list:
+def extract_subint(subints: list) -> dict:
     """
     引数で受け取ったデータから情報を抽出するための関数
     
@@ -22,32 +22,20 @@ def extract_subint(subints: list) -> list:
             }
         }
     """
-    key_enable = 'enabled'
-    key_admin_status = 'admin-status'
-    key_oper_status = 'oper-status'
-    key_last_change = 'last-change'
-    key_ip = 'ip'
-    key_prefix_length = 'prefix-length'
-    key_description = 'description'
-    state_keys = [key_enable, key_admin_status, key_oper_status, key_last_change]
-    ip_keys = [key_ip, key_prefix_length]
-    config_keys = [key_description]
+    enabled_path = 'state.enabled'
+    admin_status_path = 'state."admin-status"'
+    oper_status_path = 'state."oper-status"'
+    last_change_path = 'state."last-change"'
+    ip_path = '"openconfig-if-ip:ipv4".addresses.address[].state.ip'
+    prefix_length_path = '"openconfig-if-ip:ipv4".addresses.address[].state."prefix-length"'
+    description_path = 'config.description'
     
-    base_path = '[*]'
-    index_path = f'{base_path}.index'
-    state_path = f'{base_path}.state.["{key_enable}", "{key_admin_status}", "{key_oper_status}", "{key_last_change}"]'
-    ip_path = f'"openconfig-if-ip:ipv4".addresses.address[*].state.["{key_ip}", "{key_prefix_length}"][]'
-    confi_path = f'{base_path}.config.["{key_description}"]'
-    
-    index_datas = jmespath.search(index_path, subints)
-    state_datas = jmespath.search(state_path, subints)
-    base_ip_datas = [jmespath.search(ip_path, subint) for subint in subints]
-    ip_datas = [[None,None] if ip_data == None else ip_data for ip_data in base_ip_datas]
-    confi_datas = jmespath.search(confi_path, subints)
-    
-    states = [dict(zip(state_keys, state_val)) for state_val in state_datas]
-    ips = [dict(zip(ip_keys, ip_val)) for ip_val in ip_datas]
-    configs = [dict(zip(config_keys, config_val)) for config_val in confi_datas]
-    return_subints_data = dict(zip(index_datas, [dict(state | ip | config) for state, ip, config in zip(states, ips, configs)]))
+    data_paths = f'[].{{enabled: {enabled_path},"admin-status": {admin_status_path}, "oper-status": {oper_status_path}, "last-change": {last_change_path}, ip: {ip_path}, "prefix-length": {prefix_length_path}, description: {description_path}}}[]'
+    index_path = '[].index[]'
+    subint_data = jmespath.search(data_paths, subints)
+    index_data = jmespath.search(index_path, subints)
 
+    return_subints_data = {}
+    for index, subint in zip(index_data, subint_data):
+        return_subints_data[index] = subint
     return return_subints_data

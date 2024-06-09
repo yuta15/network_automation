@@ -1,9 +1,7 @@
-import jmespath
-
 from noa.network_functions.interface.interface import interface
-from tests.mods.interface.correct_eth_data import correct_eth_data
-from tests.mods.interface.correct_state_data import correct_state_data
-from tests.mods.interface.correct_subint_data import correct_subint_data
+from tests.mods.interface.generate_test_data_eth import generate_test_data_eth
+from tests.mods.interface.generate_test_data_state import generate_test_data_state
+from tests.mods.interface.generate_test_data_subint import generate_test_data_subint
 
 
 def test_interface(conf):
@@ -20,32 +18,37 @@ def test_interface(conf):
     """
     int_arg_path = '"openconfig-interfaces:interfaces".interface'
     int_name_path = '"openconfig-interfaces:interfaces".interface[*].name'
-    eth_path = '"openconfig-interfaces:interfaces".interface[*]."openconfig-if-ethernet:ethernet"'
+    eth_path = '"openconfig-interfaces:interfaces".interface[*]'
     state_path = '"openconfig-interfaces:interfaces".interface[*].state'
     subint_path = '"openconfig-interfaces:interfaces".interface[*].subinterfaces.subinterface[*]'
+    
     paths = [int_arg_path, int_name_path, eth_path, state_path, subint_path]
     int_args, int_names, eth_arg_list, state_arg_list, subint_args_list = conf(paths)
-
-    print(eth_arg_list)
-    correct_states = correct_state_data(state_arg_list)
-    correct_eths = correct_eth_data(eth_arg_list)
-    correct_subints = correct_subint_data(subint_args_list)
     
-    key_state = 'state'
-    key_eth = 'ethernet'
-    key_subints = 'subinterfaces'
-    
-    datas = []
-    for state, eth, subint in zip(correct_states, correct_eths, correct_subints):
-        state_d = {key_state: state}
-        eth_d = {key_eth: eth}
-        subint_d = {key_subints: subint}
-        datas.append(state_d | eth_d | subint_d)
+    state_data = generate_test_data_state(state_arg_list)
+    eth_data = generate_test_data_eth(eth_arg_list)
+    subint_data = [generate_test_data_subint(subint) for subint in subint_args_list]
 
-    returned_int_data = []
+    ethernet_key = 'ethernet'
+    state_key = 'state'
+    subint_key = 'subinterfaces'
+
     correct_int_data = []
+    returned_int_data = []
+    
+    for int_name, state, eth, subint in zip(int_names, state_data, eth_data, subint_data):
+        int_dict = {}
+        state_dict = {}
+        eth_dict = {}
+        subint_dict = {}
+        eth_dict[ethernet_key] = eth
+        state_dict[state_key] = state
+        subint_dict[subint_key] = subint
+        
+        int_dict[int_name] = state_dict | eth_dict | subint_dict
+        correct_int_data.append(int_dict)
+
+    for int_arg in int_args:
+        returned_int_data.append(interface(int_arg))
+        
     assert returned_int_data == correct_int_data
-    
-    
-    
-    

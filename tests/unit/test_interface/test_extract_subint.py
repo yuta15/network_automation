@@ -1,5 +1,5 @@
 from noa.network_functions.interface.extract.extract_subint import extract_subint
-from tests.mods.interface.correct_subint_data import correct_subint_data
+from tests.mods.interface.generate_test_data_subint import generate_test_data_subint
 
 
 def test_extract_subint(conf):
@@ -21,11 +21,11 @@ def test_extract_subint(conf):
     '''
     subint_path = ['"openconfig-interfaces:interfaces".interface[*].subinterfaces.subinterface[*]']
     subint_args_list = conf(subint_path)[0]
-
-    correct_subint_list = correct_subint_data(subint_args_list)
-    returned_subitn_list = []
     
+    correct_subints = [generate_test_data_subint(subint_arg) for subint_arg in subint_args_list]
+    returned_subitn_list = []
+
     for subints_arg in subint_args_list:
         returned_subitn_list.append((extract_subint(subints_arg)))
-        
-    assert returned_subitn_list == correct_subint_list
+
+    assert returned_subitn_list == correct_subints
