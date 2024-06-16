@@ -1,7 +1,7 @@
 import jmespath
 
 
-def generate_test_data_subint(subint_data):
+def genr_subif(subint_data):
     """
     subintのテスト用データを生成する関数
     args:

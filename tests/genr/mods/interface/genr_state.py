@@ -1,6 +1,6 @@
 import jmespath
 
-def generate_test_data_state(state_data):
+def genr_state(state_data):
     """
     正しいstateデータを生成する関数
     args:

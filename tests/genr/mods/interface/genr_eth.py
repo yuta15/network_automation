@@ -1,6 +1,6 @@
 import jmespath
 
-def generate_test_data_eth(eth_data):
+def genr_eth(eth_data):
     """
     jsonデータからテスト用の正解データを生成する。
     args:
