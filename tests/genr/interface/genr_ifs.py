@@ -1,9 +1,9 @@
 import jmespath
 
 
-from tests.genr.mods.interface.genr_eth import genr_eth
-from tests.genr.mods.interface.genr_state import genr_state
-from tests.genr.mods.interface.genr_subif import genr_subif
+from tests.genr.interface.mods.genr_eth import genr_eth
+from tests.genr.interface.mods.genr_state import genr_state
+from tests.genr.interface.mods.genr_subif import genr_subif
 
 
 def genr_ifs(int_data, isstate:bool=False, iseth:bool=False, issubif:bool=False) -> dict:

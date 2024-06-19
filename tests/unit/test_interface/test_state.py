@@ -1,5 +1,5 @@
 from noa.network_functions.interface.extract.extract_state import extract_state
-from tests.genr.genr_ifs import genr_ifs
+from tests.genr.interface.genr_ifs import genr_ifs
 
 def test_state(conf):
     '''
@@ -14,7 +14,7 @@ def test_state(conf):
     }
     '''
     state_path = ['.', '"openconfig-interfaces:interfaces".interface[*].state']
-    if_data, state_arg_list = conf(state_path)
+    if_data, state_arg_list = conf('interface', state_path)
     
     correct_datas = genr_ifs(if_data, isstate=True)
     

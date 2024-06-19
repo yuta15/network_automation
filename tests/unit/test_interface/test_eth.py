@@ -1,7 +1,7 @@
 import jmespath
 
 from noa.network_functions.interface.extract.extract_ethernet import extract_ethernet
-from tests.genr.genr_ifs import genr_ifs
+from tests.genr.interface.genr_ifs import genr_ifs
 
 
 def test_eth(conf):
@@ -19,7 +19,7 @@ def test_eth(conf):
         '.',
         '"openconfig-interfaces:interfaces".interface[*]."openconfig-if-ethernet:ethernet"'
         ]
-    if_data, args_eth_data = conf(eth_path)
+    if_data, args_eth_data = conf('interface', eth_path)
     cor_datas = genr_ifs(if_data, iseth=True)
     del_data = {'mac-address': None, 'auto-negotiate': None, 'port-speed': None, 'negotiated-duplex-mode': None}
     cor_datas = [data for data in cor_datas if not data == del_data]

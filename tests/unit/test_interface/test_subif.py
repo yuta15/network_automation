@@ -1,5 +1,5 @@
 from noa.network_functions.interface.extract.extract_subint import extract_subint
-from tests.genr.genr_ifs import genr_ifs
+from tests.genr.interface.genr_ifs import genr_ifs
 
 
 def test_subif(conf):
@@ -20,7 +20,7 @@ def test_subif(conf):
     }
     '''
     subint_path = ['.','"openconfig-interfaces:interfaces".interface[*].subinterfaces.subinterface[*]']
-    if_data, subint_args_list = conf(subint_path)
+    if_data, subint_args_list = conf('interface', subint_path)
     
     correct_subints = genr_ifs(if_data, issubif=True)
     
