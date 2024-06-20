@@ -1,5 +1,5 @@
 from noa.network_functions.interface.interface import interface
-from tests.genr.genr_ifs import genr_ifs
+from tests.genr.interface.genr_ifs import genr_ifs
 
 
 def test_if(conf):
@@ -15,7 +15,7 @@ def test_if(conf):
     }
     """
     paths = ['.', '"openconfig-interfaces:interfaces".interface']
-    if_data, if_args = conf(paths)
+    if_data, if_args = conf('interface', paths)
     cor_if_data = genr_ifs(if_data)
     cor_data = []
     for key, val in zip(list(cor_if_data.keys()), list(cor_if_data.values())):
