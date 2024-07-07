@@ -1,0 +1,697 @@
+{
+  "openconfig-network-instance:network-instances": {
+    "network-instance": [
+      {
+        "name": "default",
+        "config": {
+          "name": "default",
+          "type": "openconfig-network-instance-types:DEFAULT_INSTANCE",
+          "description": "default-vrf [read-only]"
+        },
+        "state": {
+          "name": "default",
+          "type": "openconfig-network-instance-types:DEFAULT_INSTANCE",
+          "description": "default-vrf [read-only]"
+        },
+        "tables": {
+          "table": [
+            {
+              "protocol": "openconfig-policy-types:DIRECTLY_CONNECTED",
+              "address-family": "openconfig-types:IPV4",
+              "config": {
+                "protocol": "openconfig-policy-types:DIRECTLY_CONNECTED",
+                "address-family": "openconfig-types:IPV4"
+              },
+              "state": {
+                "protocol": "openconfig-policy-types:DIRECTLY_CONNECTED",
+                "address-family": "openconfig-types:IPV4"
+              }
+            },
+            {
+              "protocol": "openconfig-policy-types:DIRECTLY_CONNECTED",
+              "address-family": "openconfig-types:IPV6",
+              "config": {
+                "protocol": "openconfig-policy-types:DIRECTLY_CONNECTED",
+                "address-family": "openconfig-types:IPV6"
+              },
+              "state": {
+                "protocol": "openconfig-policy-types:DIRECTLY_CONNECTED",
+                "address-family": "openconfig-types:IPV6"
+              }
+            },
+            {
+              "protocol": "openconfig-policy-types:STATIC",
+              "address-family": "openconfig-types:IPV4",
+              "config": {
+                "protocol": "openconfig-policy-types:STATIC",
+                "address-family": "openconfig-types:IPV4"
+              },
+              "state": {
+                "protocol": "openconfig-policy-types:STATIC",
+                "address-family": "openconfig-types:IPV4"
+              }
+            },
+            {
+              "protocol": "openconfig-policy-types:STATIC",
+              "address-family": "openconfig-types:IPV6",
+              "config": {
+                "protocol": "openconfig-policy-types:STATIC",
+                "address-family": "openconfig-types:IPV6"
+              },
+              "state": {
+                "protocol": "openconfig-policy-types:STATIC",
+                "address-family": "openconfig-types:IPV6"
+              }
+            }
+          ]
+        },
+        "protocols": {
+          "protocol": [
+            {
+              "identifier": "openconfig-policy-types:BGP",
+              "name": "65501",
+              "config": {
+                "identifier": "openconfig-policy-types:BGP",
+                "name": "65501"
+              },
+              "bgp": {
+                "global": {
+                  "config": {
+                    "as": 65501
+                  },
+                  "state": {
+                    "as": 65501
+                  },
+                  "graceful-restart": {
+                    "config": {
+                      "enabled": false
+                    },
+                    "state": {
+                      "enabled": false
+                    }
+                  },
+                  "route-selection-options": {
+                    "config": {
+                      "always-compare-med": false,
+                      "external-compare-router-id": true
+                    },
+                    "state": {
+                      "always-compare-med": false,
+                      "external-compare-router-id": true
+                    }
+                  }
+                },
+                "neighbors": {
+                  "neighbor": [
+                    {
+                      "neighbor-address": "172.18.1.1",
+                      "config": {
+                        "neighbor-address": "172.18.1.1",
+                        "peer-as": 65500
+                      },
+                      "state": {
+                        "neighbor-address": "172.18.1.1",
+                        "peer-as": 65500,
+                        "peer-type": "EXTERNAL",
+                        "session-state": "ESTABLISHED",
+                        "supported-capabilities": ["openconfig-bgp-types:ROUTE_REFRESH", "openconfig-bgp-types:ASN32"],
+                        "messages": {
+                          "sent": {
+                            "UPDATE": "2",
+                            "NOTIFICATION": "0"
+                          },
+                          "received": {
+                            "UPDATE": "4",
+                            "NOTIFICATION": "0"
+                          }
+                        },
+                        "queues": {
+                          "input": 0,
+                          "output": 0
+                        }
+                      },
+                      "timers": {
+                        "config": {
+                          "hold-time": "20.0",
+                          "keepalive-interval": "5.0"
+                        },
+                        "state": {
+                          "hold-time": "20.0",
+                          "keepalive-interval": "5.0"
+                        }
+                      },
+                      "transport": {
+                        "state": {
+                          "local-port": 179,
+                          "remote-address": "172.18.1.1",
+                          "remote-port": 53091
+                        }
+                      },
+                      "error-handling": {
+                        "state": {
+                          "treat-as-withdraw": true
+                        }
+                      },
+                      "ebgp-multihop": {
+                        "config": {
+                          "enabled": false
+                        },
+                        "state": {
+                          "enabled": false
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              "cisco-xe-openconfig-rib-bgp-ext:bgp-rib": {
+                "afi-safis": {
+                  "afi-safi": [
+                    {
+                      "afi-safi-name": "openconfig-bgp-types:L3VPN_IPV4_MULTICAST"
+                    },
+                    {
+                      "afi-safi-name": "openconfig-bgp-types:IPV4_UNICAST",
+                      "ipv4-unicast": {
+                        "loc-rib": {
+                          "routes": {
+                            "route": [
+                              {
+                                "prefix": "0.0.0.0/0",
+                                "attributes": {
+                                  "next-hops": [
+                                    {
+                                      "next-hop": "172.18.1.1",
+                                      "origin": "IGP",
+                                      "as-path": "65500",
+                                      "med": 0,
+                                      "local-pref": 100,
+                                      "atomic-aggr": false,
+                                      "aggregator": {
+                                        "as": 0,
+                                        "as4": 0
+                                      },
+                                      "aigp": "0",
+                                      "path-id": 0,
+                                      "valid-route": true,
+                                      "best-path": true
+                                    }
+                                  ]
+                                }
+                              },
+                              {
+                                "prefix": "10.1.100.0/24",
+                                "attributes": {
+                                  "next-hops": [
+                                    {
+                                      "next-hop": "172.18.1.1",
+                                      "origin": "INCOMPLETE",
+                                      "as-path": "65500",
+                                      "med": 0,
+                                      "local-pref": 100,
+                                      "atomic-aggr": false,
+                                      "aggregator": {
+                                        "as": 0,
+                                        "as4": 0
+                                      },
+                                      "aigp": "0",
+                                      "path-id": 0,
+                                      "valid-route": true,
+                                      "best-path": true
+                                    }
+                                  ]
+                                }
+                              },
+                              {
+                                "prefix": "10.1.101.0/24",
+                                "attributes": {
+                                  "next-hops": [
+                                    {
+                                      "next-hop": "0.0.0.0",
+                                      "origin": "INCOMPLETE",
+                                      "as-path": "",
+                                      "med": 0,
+                                      "local-pref": 100,
+                                      "atomic-aggr": false,
+                                      "aggregator": {
+                                        "as": 0,
+                                        "as4": 0
+                                      },
+                                      "aigp": "0",
+                                      "path-id": 0,
+                                      "valid-route": true,
+                                      "best-path": true
+                                    }
+                                  ]
+                                }
+                              },
+                              {
+                                "prefix": "10.1.102.0/24",
+                                "attributes": {
+                                  "next-hops": [
+                                    {
+                                      "next-hop": "0.0.0.0",
+                                      "origin": "INCOMPLETE",
+                                      "as-path": "",
+                                      "med": 0,
+                                      "local-pref": 100,
+                                      "atomic-aggr": false,
+                                      "aggregator": {
+                                        "as": 0,
+                                        "as4": 0
+                                      },
+                                      "aigp": "0",
+                                      "path-id": 0,
+                                      "valid-route": true,
+                                      "best-path": true
+                                    }
+                                  ]
+                                }
+                              },
+                              {
+                                "prefix": "10.1.105.0/24",
+                                "attributes": {
+                                  "next-hops": [
+                                    {
+                                      "next-hop": "0.0.0.0",
+                                      "origin": "INCOMPLETE",
+                                      "as-path": "",
+                                      "med": 0,
+                                      "local-pref": 100,
+                                      "atomic-aggr": false,
+                                      "aggregator": {
+                                        "as": 0,
+                                        "as4": 0
+                                      },
+                                      "aigp": "0",
+                                      "path-id": 0,
+                                      "valid-route": true,
+                                      "best-path": true
+                                    }
+                                  ]
+                                }
+                              },
+                              {
+                                "prefix": "172.18.1.0/30",
+                                "attributes": {
+                                  "next-hops": [
+                                    {
+                                      "next-hop": "172.18.1.1",
+                                      "origin": "INCOMPLETE",
+                                      "as-path": "65500",
+                                      "med": 0,
+                                      "local-pref": 100,
+                                      "atomic-aggr": false,
+                                      "aggregator": {
+                                        "as": 0,
+                                        "as4": 0
+                                      },
+                                      "aigp": "0",
+                                      "path-id": 0,
+                                      "valid-route": true,
+                                      "best-path": true
+                                    }
+                                  ]
+                                }
+                              },
+                              {
+                                "prefix": "172.18.1.4/30",
+                                "attributes": {
+                                  "next-hops": [
+                                    {
+                                      "next-hop": "172.18.1.1",
+                                      "origin": "INCOMPLETE",
+                                      "as-path": "65500",
+                                      "med": 0,
+                                      "local-pref": 100,
+                                      "atomic-aggr": false,
+                                      "aggregator": {
+                                        "as": 0,
+                                        "as4": 0
+                                      },
+                                      "aigp": "0",
+                                      "path-id": 0,
+                                      "valid-route": true,
+                                      "best-path": true
+                                    }
+                                  ]
+                                }
+                              },
+                              {
+                                "prefix": "192.168.1.0/24",
+                                "attributes": {
+                                  "next-hops": [
+                                    {
+                                      "next-hop": "172.18.1.1",
+                                      "origin": "INCOMPLETE",
+                                      "as-path": "65500",
+                                      "med": 0,
+                                      "local-pref": 100,
+                                      "atomic-aggr": false,
+                                      "aggregator": {
+                                        "as": 0,
+                                        "as4": 0
+                                      },
+                                      "aigp": "0",
+                                      "path-id": 0,
+                                      "valid-route": true,
+                                      "best-path": true
+                                    }
+                                  ]
+                                }
+                              }
+                            ]
+                          }
+                        },
+                        "neighbors": {
+                          "neighbor": [
+                            {
+                              "neighbor-address": "172.18.1.1",
+                              "adj-rib-in-post": {
+                                "routes": {
+                                  "route": [
+                                    {
+                                      "prefix": "0.0.0.0/0",
+                                      "attributes": {
+                                        "next-hops": [
+                                          {
+                                            "next-hop": "172.18.1.1",
+                                            "origin": "IGP",
+                                            "as-path": "65500",
+                                            "as4-path": "",
+                                            "med": 0,
+                                            "local-pref": 100,
+                                            "atomic-aggr": false,
+                                            "aggregator": {
+                                              "as": 0,
+                                              "as4": 0
+                                            },
+                                            "aigp": "0",
+                                            "path-id": 0,
+                                            "valid-route": true,
+                                            "best-path": true
+                                          }
+                                        ]
+                                      }
+                                    },
+                                    {
+                                      "prefix": "10.1.100.0/24",
+                                      "attributes": {
+                                        "next-hops": [
+                                          {
+                                            "next-hop": "172.18.1.1",
+                                            "origin": "INCOMPLETE",
+                                            "as-path": "65500",
+                                            "as4-path": "",
+                                            "med": 0,
+                                            "local-pref": 100,
+                                            "atomic-aggr": false,
+                                            "aggregator": {
+                                              "as": 0,
+                                              "as4": 0
+                                            },
+                                            "aigp": "0",
+                                            "path-id": 0,
+                                            "valid-route": true,
+                                            "best-path": true
+                                          }
+                                        ]
+                                      }
+                                    },
+                                    {
+                                      "prefix": "172.18.1.0/30",
+                                      "attributes": {
+                                        "next-hops": [
+                                          {
+                                            "next-hop": "172.18.1.1",
+                                            "origin": "INCOMPLETE",
+                                            "as-path": "65500",
+                                            "as4-path": "",
+                                            "med": 0,
+                                            "local-pref": 100,
+                                            "atomic-aggr": false,
+                                            "aggregator": {
+                                              "as": 0,
+                                              "as4": 0
+                                            },
+                                            "aigp": "0",
+                                            "path-id": 0,
+                                            "valid-route": true,
+                                            "best-path": true
+                                          }
+                                        ]
+                                      }
+                                    },
+                                    {
+                                      "prefix": "172.18.1.4/30",
+                                      "attributes": {
+                                        "next-hops": [
+                                          {
+                                            "next-hop": "172.18.1.1",
+                                            "origin": "INCOMPLETE",
+                                            "as-path": "65500",
+                                            "as4-path": "",
+                                            "med": 0,
+                                            "local-pref": 100,
+                                            "atomic-aggr": false,
+                                            "aggregator": {
+                                              "as": 0,
+                                              "as4": 0
+                                            },
+                                            "aigp": "0",
+                                            "path-id": 0,
+                                            "valid-route": true,
+                                            "best-path": true
+                                          }
+                                        ]
+                                      }
+                                    },
+                                    {
+                                      "prefix": "192.168.1.0/24",
+                                      "attributes": {
+                                        "next-hops": [
+                                          {
+                                            "next-hop": "172.18.1.1",
+                                            "origin": "INCOMPLETE",
+                                            "as-path": "65500",
+                                            "as4-path": "",
+                                            "med": 0,
+                                            "local-pref": 100,
+                                            "atomic-aggr": false,
+                                            "aggregator": {
+                                              "as": 0,
+                                              "as4": 0
+                                            },
+                                            "aigp": "0",
+                                            "path-id": 0,
+                                            "valid-route": true,
+                                            "best-path": true
+                                          }
+                                        ]
+                                      }
+                                    }
+                                  ]
+                                }
+                              },
+                              "adj-rib-out-pre": {
+                                "routes": {
+                                  "route": [
+                                    {
+                                      "prefix": "10.1.101.0/24",
+                                      "attributes": {
+                                        "next-hops": [
+                                          {
+                                            "next-hop": "0.0.0.0",
+                                            "origin": "INCOMPLETE",
+                                            "as-path": "",
+                                            "as4-path": "",
+                                            "med": 0,
+                                            "local-pref": 100,
+                                            "atomic-aggr": false,
+                                            "aggregator": {
+                                              "as": 0,
+                                              "as4": 0
+                                            },
+                                            "aigp": "0",
+                                            "path-id": 0,
+                                            "valid-route": true,
+                                            "best-path": true
+                                          }
+                                        ]
+                                      }
+                                    },
+                                    {
+                                      "prefix": "10.1.102.0/24",
+                                      "attributes": {
+                                        "next-hops": [
+                                          {
+                                            "next-hop": "0.0.0.0",
+                                            "origin": "INCOMPLETE",
+                                            "as-path": "",
+                                            "as4-path": "",
+                                            "med": 0,
+                                            "local-pref": 100,
+                                            "atomic-aggr": false,
+                                            "aggregator": {
+                                              "as": 0,
+                                              "as4": 0
+                                            },
+                                            "aigp": "0",
+                                            "path-id": 0,
+                                            "valid-route": true,
+                                            "best-path": true
+                                          }
+                                        ]
+                                      }
+                                    },
+                                    {
+                                      "prefix": "10.1.105.0/24",
+                                      "attributes": {
+                                        "next-hops": [
+                                          {
+                                            "next-hop": "0.0.0.0",
+                                            "origin": "INCOMPLETE",
+                                            "as-path": "",
+                                            "as4-path": "",
+                                            "med": 0,
+                                            "local-pref": 100,
+                                            "atomic-aggr": false,
+                                            "aggregator": {
+                                              "as": 0,
+                                              "as4": 0
+                                            },
+                                            "aigp": "0",
+                                            "path-id": 0,
+                                            "valid-route": true,
+                                            "best-path": true
+                                          }
+                                        ]
+                                      }
+                                    }
+                                  ]
+                                }
+                              },
+                              "adj-rib-out-post": {
+                                "routes": {
+                                  "route": [
+                                    {
+                                      "prefix": "10.1.101.0/24",
+                                      "attributes": {
+                                        "next-hops": [
+                                          {
+                                            "next-hop": "172.18.1.2",
+                                            "origin": "INCOMPLETE",
+                                            "as-path": "65501",
+                                            "as4-path": "",
+                                            "med": 0,
+                                            "local-pref": 0,
+                                            "atomic-aggr": false,
+                                            "aggregator": {
+                                              "as": 0,
+                                              "as4": 0
+                                            },
+                                            "aigp": "0",
+                                            "path-id": 0,
+                                            "valid-route": true,
+                                            "best-path": false
+                                          }
+                                        ]
+                                      }
+                                    },
+                                    {
+                                      "prefix": "10.1.102.0/24",
+                                      "attributes": {
+                                        "next-hops": [
+                                          {
+                                            "next-hop": "172.18.1.2",
+                                            "origin": "INCOMPLETE",
+                                            "as-path": "65501",
+                                            "as4-path": "",
+                                            "med": 0,
+                                            "local-pref": 0,
+                                            "atomic-aggr": false,
+                                            "aggregator": {
+                                              "as": 0,
+                                              "as4": 0
+                                            },
+                                            "aigp": "0",
+                                            "path-id": 0,
+                                            "valid-route": true,
+                                            "best-path": false
+                                          }
+                                        ]
+                                      }
+                                    },
+                                    {
+                                      "prefix": "10.1.105.0/24",
+                                      "attributes": {
+                                        "next-hops": [
+                                          {
+                                            "next-hop": "172.18.1.2",
+                                            "origin": "INCOMPLETE",
+                                            "as-path": "65501",
+                                            "as4-path": "",
+                                            "med": 0,
+                                            "local-pref": 0,
+                                            "atomic-aggr": false,
+                                            "aggregator": {
+                                              "as": 0,
+                                              "as4": 0
+                                            },
+                                            "aigp": "0",
+                                            "path-id": 0,
+                                            "valid-route": true,
+                                            "best-path": false
+                                          }
+                                        ]
+                                      }
+                                    }
+                                  ]
+                                }
+                              }
+                            }
+                          ]
+                        }
+                      }
+                    },
+                    {
+                      "afi-safi-name": "openconfig-bgp-types:L3VPN_IPV6_MULTICAST"
+                    },
+                    {
+                      "afi-safi-name": "openconfig-bgp-types:IPV6_UNICAST",
+                      "ipv6-unicast": {
+                        "neighbors": {
+                          "neighbor": [
+                            {
+                              "neighbor-address": "172.18.1.1"
+                            }
+                          ]
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            },
+            {
+              "identifier": "openconfig-policy-types:STATIC",
+              "name": "DEFAULT",
+              "config": {
+                "identifier": "openconfig-policy-types:STATIC",
+                "name": "DEFAULT"
+              }
+            },
+            {
+              "identifier": "openconfig-policy-types:DIRECTLY_CONNECTED",
+              "name": "DEFAULT",
+              "config": {
+                "identifier": "openconfig-policy-types:DIRECTLY_CONNECTED",
+                "name": "DEFAULT"
+              }
+            }
+          ]
+        }
+      }
+    ]
+  }
+}
