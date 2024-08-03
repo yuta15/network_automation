@@ -1,10 +1,22 @@
-import json
 import os
 from fastapi import FastAPI
+from pydantic import BaseModel
+from typing import Union
 
 from noa.host.host import Host
 
 app = FastAPI()
+
+
+class Device(BaseModel):
+    address: str
+    dst_port: int
+
+
+class Auth(BaseModel):
+    username: str
+    password: str
+    cert: Union[str, None] = None
 
 # --------------------------------------
 # FastAPI tutorial
@@ -18,30 +30,22 @@ USERNAME = os.environ.get('NETWORK_TEST_USERNAME')
 PASSWORD = os.environ.get('NETWORK_TEST_PASSWORD')
 
 
-@app.get('/host')
-async def get_hostdata():
-    host = Host(HOST, USERNAME, PASSWORD)
+@app.post('/host')
+async def get_hostdata(device: Device, auth: Auth):
+    host = Host(device.address, auth.username, auth.password)
     data = host.get_hostdata()
-    data = json.dumps(data)
     return data
 
 
-@app.get('/interfaces')
-async def get_interfaces():
-    host = Host(HOST, USERNAME, PASSWORD)
-    all_interfaces_data = json.dumps(host.get_interface_all())
+@app.post('/interfaces')
+async def get_interfaces(device: Device, auth: Auth):
+    host = Host(device.address, auth.username, auth.password)
+    all_interfaces_data = host.get_interface_all()
     return all_interfaces_data
 
 
-# @app.get('/interfaces/{interface_name}')
-# async def get_interfaces(interface_name: str):
-#     host = Host(HOST, USERNAME, PASSWORD, interface_name)
-#     data = host.get_interface_info()
-#     return data
-
-
-# @app.get('/interfaces/{interface_name}/FHRP')
-# async def get_interface_fhrp(interface_name: str):
-#     host = Host(HOST, USERNAME, PASSWORD, interface_name)
-#     data = host.get_interface_info()
-#     return data
+@app.get('/interfaces/{interface_name}')
+async def get_interface(interface_name: str, device: Device, auth: Auth):
+    host = Host(device.address, auth.username, auth.password, interface_name)
+    data = host.get_interface_info()
+    return data

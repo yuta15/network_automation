@@ -1,4 +1,4 @@
-import jmespath
+
 
 from noa.network_functions.interface.extract.extract_ethernet import extract_ethernet
 from noa.network_functions.interface.extract.extract_subint import extract_subint
