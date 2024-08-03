@@ -1,1 +1,1 @@
-from . import get_data
+from . import get_data_rest

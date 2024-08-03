@@ -1,6 +1,10 @@
 
 
-from noa.control.get_data import get_data
+from noa.control.get_data_rest import get_data_rest
+from noa.host.vender.cisco.restconf.cisco_rest_get_hostdata import cisco_rest_get_hostdata
+from noa.host.vender.cisco.restconf.cisco_rest_get_interface import cisco_rest_get_interface
+from noa.host.vender.cisco.restconf.cisco_rest_get_interfaces import cisco_rest_get_interfaces
+
 from noa.network_functions.interface.interface import interface
 from noa.network_functions.interface.interfaces import interfaces
 
@@ -8,25 +12,35 @@ from noa.network_functions.interface.interfaces import interfaces
 class Host:
     """
     ネットワーク機器のClass
-    args:
-        host: str
-            情報を取得するネットワーク機器のドメイン or IP address
-        username: str
-            ユーザ名の文字列
-        password: str
-            パスワードの文字列
-    return: None
     remarks:
         get以外の機能は未実装
     """
-    def __init__(self, host, username, password) -> None:
-        self.host = host
-        self.username = username
-        self.password = password
-        self.login = {'host': host, 'username': username, 'password': password}
-        self.base_url = f'https://{self.host}/restconf/data'
-        
-        
+    def __init__(self, target:str, username:str, password:str, vender:str, port:int=None, method:str=None, model:str=None) -> None:
+        """
+        args:
+            target: str
+                情報を取得するネットワーク機器のドメイン or IP address
+            username: str
+                ユーザ名の文字列
+            password: str
+                パスワードの文字列
+            vender: str
+                NW機器のベンダー名
+            port: int
+                NW機器へアクセスするための宛先ポート番号
+            method: str
+                NW機器へアクセスするためのインターフェース. restconf,netconf,grpc,gnmi,gnoi等
+            model: str
+                使用するYang-model. 取得できるデータが異なる。
+            return: None
+        """
+        self.method = method
+        self.vender = vender
+        self.model = model
+        self.match_case = [vender, method]
+        self.login_params = {'target': target, 'username': username, 'password': password, 'port':port, 'model': model}
+
+
     def get_hostdata(self):
         """
         OSバージョン、S/N、稼働時間を取得する関数。
@@ -42,17 +56,22 @@ class Host:
             }
             *未実装
         remarks:
-            Cisco固有のpathを使用しているため、OpenConfigにて実装可能である場合は修正
+            venderの値毎に関数を分割。
         """
-        urls = [
-            self.base_url + '/Cisco-IOS-XE-native:native/version',
-            self.base_url + '/Cisco-IOS-XE-native:native/license/udi/sn',
-        ]
-        dict_keys = ['version', 's/n']
-        staus_code_list, content_list = get_data(self.login, urls)
-        # status_codeを使用した条件分岐
-        host_data = {key : value for key, value in zip(dict_keys, content_list)}
-        return host_data
+        match self.match_case:
+            case ['cisco', 'restconf']:
+                host_data = cisco_rest_get_hostdata(self.login_params)
+                return host_data
+            # case ['cisco', 'netconf']:
+            #     host_data = cisco_net_get_hostdata(login_params)
+            #     return host_data
+            # case ['cisco', 'gnmi']:
+            #     host_data = cisco_gnmi_get_hostdata(login_params)
+            #     return host_data
+            # case ['paloalto', 'rest']:
+            #     host_data = palo_rest_get_hostdata(login_params)
+            #     return host_data
+            
     
     
     def get_interface_all(self):
@@ -69,7 +88,7 @@ class Host:
             Cisco独自のpathから取得可能であることは確認済みの為、条件分岐で実装。
         """        
         urls = [self.base_url + '/openconfig-interfaces:interfaces']
-        status_code_list, content_list = get_data(self.login, urls)
+        status_code_list, content_list = get_data_rest(self.login, urls)
         return_interfaces_data = None
         for content in content_list:
             return_interfaces_data = interfaces(content.get('interface'))

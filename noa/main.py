@@ -4,6 +4,7 @@ from pydantic import BaseModel
 from typing import Union
 
 from noa.host.host import Host
+from noa.host.vender.cisco.cisco import Cisco
 
 app = FastAPI()
 
@@ -11,6 +12,8 @@ app = FastAPI()
 class Device(BaseModel):
     address: str
     dst_port: int
+    vender: Union[str, None] = None
+    method: Union[str, None] = None
 
 
 class Auth(BaseModel):
@@ -32,7 +35,12 @@ PASSWORD = os.environ.get('NETWORK_TEST_PASSWORD')
 
 @app.post('/host')
 async def get_hostdata(device: Device, auth: Auth):
-    host = Host(device.address, auth.username, auth.password)
+    match device.vender:
+        case "cisco":
+            host = Cisco(target=device.address, username=auth.username, password=auth.password)
+        # case "fortinet":
+            
+    # host = Host(device.address, auth.username, auth.password)
     data = host.get_hostdata()
     return data
 

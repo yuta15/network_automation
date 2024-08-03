@@ -3,7 +3,7 @@ from requests.auth import HTTPBasicAuth
 import json
 
 
-def get_data(login_data, urls):
+def get_data_rest(login_data, urls):
     """
     用途：
         ネットワーク機器から情報を取得する為の関数。
@@ -16,7 +16,11 @@ def get_data(login_data, urls):
         urls: list
             取得する情報のURL一覧
             
-    Return: dict
+    Return: tupple
+        (
+            [status_code1, status_code2, status_code3],
+            [{url1_data}, {url2_data}, {url3_data}]
+        )
     """
     status_code = []
     content_data = []
