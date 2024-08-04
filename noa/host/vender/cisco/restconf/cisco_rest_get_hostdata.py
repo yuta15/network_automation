@@ -4,6 +4,7 @@
 from noa.control.get_data_rest import get_data_rest
 
 
+
 def cisco_rest_get_hostdata(login_params):
     """
     cisco用ホストデータ取得用関数
@@ -31,6 +32,16 @@ def cisco_rest_get_hostdata(login_params):
             f'https://{login_params['taraget']}:{login_params['port']}restconf/data/Cisco-IOS-XE-native:native/version', 
             f'https://{login_params['taraget']}:{login_params['port']}restconf/data/Cisco-IOS-XE-native:native/license/udi/sn'            
         ]
+        host_data = get_data_rest(
+            {
+                'host': login_params['target'], 
+                'username': login_params['username'], 
+                'password': login_params['password']
+            }, 
+            urls
+        )
+        
+        
     elif login_params['model'] == 'cisco':
         urls = [
             f'https://{login_params['taraget']}:{login_params['port']}restconf/data/Cisco-IOS-XE-native:native/version', 
@@ -38,8 +49,12 @@ def cisco_rest_get_hostdata(login_params):
             ]
         
     host_data = get_data_rest(
-        {'host': login_params['target'], 'username': login_params['username'], 'password': login_params['password']}, 
+        {
+            'host': login_params['target'], 
+            'username': login_params['username'], 
+            'password': login_params['password']
+        }, 
         urls
-        )
+    )
     
     

@@ -29,14 +29,14 @@ class Host:
             port: int
                 NW機器へアクセスするための宛先ポート番号
             method: str
-                NW機器へアクセスするためのインターフェース. restconf,netconf,grpc,gnmi,gnoi等
+                NW機器へアクセスするためのインターフェース. restconf,netconf,gnmi,gnoi等
             model: str
                 使用するYang-model. 取得できるデータが異なる。
             return: None
         """
-        self.method = method
+        self.method = method if not method is None else 'gnmi'
         self.vender = vender
-        self.model = model
+        self.model = model if not model is None else self.vender 
         self.match_case = [vender, method]
         self.login_params = {'target': target, 'username': username, 'password': password, 'port':port, 'model': model}
 
@@ -46,7 +46,6 @@ class Host:
         OSバージョン、S/N、稼働時間を取得する関数。
         現状、OSバージョン、S/Nのみ取得可能。
         args:
-
         return:
             host_data: dict
             {
@@ -86,8 +85,11 @@ class Host:
             OpenConfigで実装。
             Cisco機器からはVLAN情報は取得できないためVLAN情報については未実装
             Cisco独自のpathから取得可能であることは確認済みの為、条件分岐で実装。
-        """        
-        urls = [self.base_url + '/openconfig-interfaces:interfaces']
+        """
+        match self.match_case:
+            case ['cisco', 'restconf']:
+                
+                urls = [self.base_url + '/openconfig-interfaces:interfaces']
         status_code_list, content_list = get_data_rest(self.login, urls)
         return_interfaces_data = None
         for content in content_list:

@@ -4,6 +4,7 @@ from noa.network_functions.interface.extract.extract_ethernet import extract_eth
 from noa.network_functions.interface.extract.extract_subint import extract_subint
 from noa.network_functions.interface.extract.extract_state import extract_state
 
+
 def interface(interface_dict):
     """
     単一のインターフェースのethernet, subinterface, config, state情報をマージする関数
@@ -18,7 +19,6 @@ def interface(interface_dict):
     remarks:
         config情報については未実装
     """
-    
     state_dict = {
         "enabled": None,
         "admin-status": None,
